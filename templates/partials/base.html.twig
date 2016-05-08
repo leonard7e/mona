@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+  <head>
+        {% block stylesheets %}{% endblock %}
+        {{ assets.css() }}
+    <meta charset="utf-8">
+    <title>{{ config.site.title }} --- {{page.title() }}</title>
+  </head>
+  <body>
+    <main>
+      {% block banner %}
+      {% include 'partials/header.html.twig' %}
+      {% endblock %}
+      <section id="mainSection">
+        {% block sidenav %}
+          {% include 'partials/navigation/side_nav.html.twig' %}
+        {% endblock %}
+        <div class="contents">
+          <header>
+            {% block header %}
+              {% if config.plugins.breadcrumbs.enabled %}
+              {% include 'partials/breadcrumbs.html.twig' %}
+              {% endif %}
+              <h1>{{ page.title() }}</h1>        
+            {% endblock %}
+          </header>
+          {% block content %}{% endblock %}
+        </div>
+      </section>
+      {% include 'partials/footer.html.twig' %}
+    </main>
+  </body>
+</html>

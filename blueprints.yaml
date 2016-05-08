@@ -1,0 +1,21 @@
+name: Mona
+version: 0.9.0
+description: "Mona. Das Thema für das Selbsthilfenetzwerk für seelische Gesundheit."
+icon: empire
+author:
+  name: Leonard Siebeneicher
+  email: l-siebeneicher@versanet.de
+  url: https://leonard7e.ovh
+keywords: mona, theme, core, html5, css3
+license: Creative Commons (noch nicht eingerichtet)
+
+form:
+  validation: loose
+  fields:
+    default_lang:
+      type: text
+      size: x-small
+      label: Default lang
+      default: 'de'
+      validate:
+        type: text

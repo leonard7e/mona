@@ -1,0 +1,14 @@
+#itsBanner 
+    background-color: $themeUiColor
+    @include mGrad(top, lighten(adjust-hue($themeUiColor,10),7%), $themeUiColor) 
+    
+#mainNavigation nav > ul
+    background-color: $themeUiColor
+    
+#mainNavigation nav > ul,
+#itsBanner
+    background-image: url('../images/HgrBanner.jpeg')
+    // background-image: url('../images/HgrBanner.svg')
+    background-position: bottom
+    // mix-blend-mode: luminosity
+    

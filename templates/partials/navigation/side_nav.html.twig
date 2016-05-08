@@ -1,0 +1,9 @@
+<aside id="sideNavigation">
+  {% if page.parent.root() %}
+  <h2>{{ page.title() }}</h2>
+  {% include 'partials/navigation/sidenav_create.html.twig' with {'current':page, 'childs':page.children.visible} %}
+  {% else %}
+  <h2>{{ page.parent.title() }}</h2>
+  {% include 'partials/navigation/sidenav_create.html.twig' with {'current':page.parent, 'childs':page.parent.children.visible} %}
+  {% endif %}
+</aside>

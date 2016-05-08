@@ -1,0 +1,11 @@
+@mixin mGradFix ($position, $color1, $color2) 
+    background: -webkit-linear-gradient( $position, $color1, $color2) fixed
+    background: -o-linear-gradient( $position, $color1, $color2) fixed
+    background: -moz-linear-gradient( $position, $color1, $color2) fixed
+    background: linear-gradient( $position, $color1, $color2) fixed
+
+@mixin mGrad ($position, $color1, $color2) 
+    background: -webkit-linear-gradient( $position, $color1, $color2) 
+    background: -o-linear-gradient( $position, $color1, $color2) 
+    background: -moz-linear-gradient( $position, $color1, $color2) 
+    background: linear-gradient( $position, $color1, $color2) 

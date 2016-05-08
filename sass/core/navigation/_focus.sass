@@ -1,0 +1,26 @@
+#sideNavigation .SideNav li a,
+#mainNavigation li 
+    position: relative
+
+.navItem:hover::before,
+.navItem:hover::after,
+.navItem:focus::before,
+.navItem:focus::after
+    display: block
+    position: absolute
+    bottom: 0
+    opacity: 0.6
+    
+  
+.navItem:hover::before,
+.navItem:focus::before
+    content: "❨"
+    left: 0
+    
+.navItem:hover::after,
+.navItem:focus::after
+    content: "❩"
+    right: 0
+
+.navItem:focus
+    outline: none

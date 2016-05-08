@@ -1,0 +1,29 @@
+#itsBanner 
+    height: $banner_height
+    min-width: $textwidth
+    padding: 0
+    z-index: 10
+    display: flex
+    justify-content: center
+    flex-direction: column
+
+#mainHeader
+    position: absolute
+    top: 0
+    
+#mainHeader > section
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    h1, h2
+        margin: 0
+
+// Damit das horizontale Zentrieren funktioniert
+#itsBanner,
+#mainHeader,
+    width: 100%
+
+//
+#mainHeader h1
+    margin: 0 3rem
+    text-align: center

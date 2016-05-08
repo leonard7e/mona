@@ -1,0 +1,10 @@
+// Animierung des Dropdowns der Menüs
+
+@keyframes MoveMenu 
+    from
+        transform: translate(0,-100%)
+    to
+        transform: translate(0,0)
+
+#mainNavigation ul > li.menu:hover > nav > ul
+    animation: MoveMenu 1s ease-out

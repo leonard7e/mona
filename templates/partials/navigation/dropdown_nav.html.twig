@@ -1,0 +1,32 @@
+{% macro navigation(pg) %}
+  <div class="navSplit" ></div>
+  <ul>
+    {% for p in pg.children.visible %}
+      <li class="menu">
+        {% if p.children.visible.count > 0 %}
+          <a 
+            class="navItem" 
+            tabindex="0"
+            href="{{ p.url }}" > 
+            {{ p.menu() }} 
+          </a>
+          <nav>
+            {{ _self.navigation (p)}}            
+          </nav>
+        {% else %}
+          <a 
+            class="navItem" 
+            tabindex="0"
+            href="{{ p.url() }}" > 
+            {{ p.menu() }} 
+          </a>    
+        {% endif %}
+      </li>
+    {% endfor %}  
+  </ul>
+{% endmacro %}
+
+{% import _self as nav %}
+<nav id="mainNavigation">
+{{ nav.navigation (pages)}}
+</nav>

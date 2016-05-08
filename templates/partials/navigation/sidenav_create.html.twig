@@ -1,0 +1,13 @@
+<nav class = "SideNav">
+  <ul>
+    {% for p in childs %}
+    <li class="sideMenu">
+      {% if p == page %}
+      <span class="navCurrent">{{ p.menu() }}</span>
+      {% else %}
+      <a class="navItem" href="{{ p.url() }}">{{ p.menu() }}</a>
+      {% endif %}
+      </li>
+    {% endfor %}  
+  </ul>
+</nav>
