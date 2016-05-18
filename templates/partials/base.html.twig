@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
   <head>
-        {% block stylesheets %}{% endblock %}
-        {{ assets.css() }}
+    {% block stylesheets %}
+    {% do assets.addCss('theme://css-compiled/mona-default.css') %}
+    {% endblock %}
+    {{ assets.css() }}
+    {% block javascript %}
+    {% do assets.addJs('http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js') %}
+    {% do assets.addJs('theme://js/mona.js') %}
+    {% endblock %}
+    {{ assets.js() }}
     <meta charset="utf-8">
     <title>{{ config.site.title }} --- {{page.title() }}</title>
   </head>
   <body>
-    <main>
+    <main ng-app="Mona">
       {% block banner %}
       {% include 'partials/header.html.twig' %}
       {% endblock %}
