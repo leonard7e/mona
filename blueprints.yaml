@@ -8,6 +8,10 @@ author:
   url: https://leonard7e.ovh
 keywords: mona, theme, core, html5, css3
 license: Creative Commons (noch nicht eingerichtet)
+homepage: https://gogs.leonard7e.ovh/leonard7e/mona.git
+demo: http://sh3.leonard7e.ovh
+license: GPL (Lesser)
+
 
 form:
   validation: loose
