@@ -1,0 +1,273 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Oswald);
+a {
+  text-decoration: none;
+  color: inherit; }
+
+#mainNavigation li,
+#mainFooter li,
+#mainSidebar li,
+#sideNavigation li {
+  list-style: none; }
+
+html, body,
+main > aside ul,
+#mainNavigation ul,
+#mainNavigation li,
+#mainNavigation nav,
+#sideNavigation h1,
+#sideNavigation ul,
+#sideNavigation li {
+  padding: 0;
+  margin: 0; }
+
+#mainFooter {
+  color: #ebeceb; }
+
+#mainNavigation .navFolder,
+#mainNavigation .navItem {
+  color: #111722; }
+
+#breadcrumbs,
+#sideNavigation h2,
+#sideNavigation .navCurrent {
+  color: #425a8a; }
+
+#mainHeader h1 {
+  color: #758dbd; }
+
+#mainSection header h1,
+#mainSection .cref {
+  color: #ac8e53; }
+
+#mainHeader > h1 {
+  font-size: 1.6rem; }
+
+#mainNavigation,
+#sideNavigation {
+  font-size: 1rem; }
+
+#sideNavigation h2,
+#mainNavigation .navHome {
+  font-size: 1.2rem; }
+
+#mainSection header h1 {
+  font-size: 2rem; }
+
+#mainHeader,
+#mainSection {
+  font-family: "Open Sans", serif; }
+
+#mainFooter,
+#breadcrumbs,
+#mainNavigation,
+#sideNavigation {
+  font-family: "Oswald", serif; }
+
+#itsBanner {
+  background-color: #cdbb98;
+  background: -webkit-linear-gradient(top, #d9d2b0, #cdbb98);
+  background: -o-linear-gradient(top, #d9d2b0, #cdbb98);
+  background: -moz-linear-gradient(top, #d9d2b0, #cdbb98);
+  background: linear-gradient(top, #d9d2b0, #cdbb98); }
+
+#mainNavigation nav > ul {
+  background-color: #cdbb98; }
+
+#mainNavigation nav > ul,
+#itsBanner {
+  background-image: url("../images/HgrBanner.jpeg");
+  background-position: bottom; }
+
+#mainNavigation > ul > li.menu > nav {
+  display: none; }
+
+#mainNavigation > ul > li.menu:hover > nav {
+  display: block;
+  position: absolute; }
+
+#mainNavigation > ul > li.menu {
+  display: inline-block; }
+
+@keyframes MoveMenu {
+  from {
+    transform: translate(0, -100%); }
+  to {
+    transform: translate(0, 0); } }
+#mainNavigation ul > li.menu:hover > nav > ul {
+  animation: MoveMenu 1s ease-out; }
+
+@keyframes MoveMenu {
+  from {
+    transform: translate(0, -100%); }
+  to {
+    transform: translate(0, 0); } }
+#mainNavigation li.menuToplevel:hover > nav > ul {
+  animation: MoveMenu 1s ease-out; }
+
+#mainNavigation {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center; }
+
+#mainNavigation {
+  line-height: 1.5rem; }
+
+.navItem,
+.navCurrent {
+  padding: 0 1.5ex; }
+
+#breadcrumbs span {
+  padding: 0; }
+
+#breadcrumbs {
+  text-align: left;
+  height: auto;
+  margin: 0.5rem 2rem;
+  padding-left: 0;
+  line-height: 1.6rem; }
+
+#breadcrumbs i::before {
+  content: "•";
+  font-style: normal; }
+
+#sideNavigation {
+  position: absolute;
+  display: block;
+  width: 0;
+  right: 1rem;
+  margin: 0; }
+
+#sideNavigation h2 {
+  line-height: 1.6rem; }
+
+#sideNavigation h1,
+#sideNavigation ul,
+#sideNavigation li {
+  margin: 0;
+  padding: 0; }
+
+#sideNavigation .SideNav li a,
+#mainNavigation li {
+  position: relative; }
+
+.navItem:hover::before,
+.navItem:hover::after,
+.navItem:focus::before,
+.navItem:focus::after {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  opacity: 0.6; }
+
+.navItem:hover::before,
+.navItem:focus::before {
+  content: "❨";
+  left: 0; }
+
+.navItem:hover::after,
+.navItem:focus::after {
+  content: "❩";
+  right: 0; }
+
+.navItem:focus {
+  outline: none; }
+
+#itsBanner,
+#mainSection,
+#mainNavigation nav > ul {
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.35); }
+
+#mainNavigation nav {
+  overflow: hidden; }
+
+#mainFooter {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6); }
+
+#mainNavigation nav .navSplit {
+  z-index: 10;
+  position: relative;
+  padding: 0;
+  height: 2px;
+  margin-top: -2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); }
+
+#mainHeader h1,
+.contents > header > h1 {
+  text-shadow: 1px 1px 1px black; }
+
+html {
+  background: -webkit-linear-gradient(top, #324467, #42728a) fixed;
+  background: -o-linear-gradient(top, #324467, #42728a) fixed;
+  background: -moz-linear-gradient(top, #324467, #42728a) fixed;
+  background: linear-gradient(top, #324467, #42728a) fixed; }
+
+#mainSection {
+  background-color: #ebeceb;
+  background-image: url("../images/shnw-wasserzeichen.png");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+#mainSection {
+  text-align: justify; }
+
+#itsBanner {
+  position: fixed; }
+
+#mainSection {
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 0.5rem;
+  min-width: 50rem;
+  max-width: 66.66667rem;
+  margin: 0 auto; }
+  #mainSection header h1 {
+    text-align: center; }
+
+#mainSection .contents {
+  padding-right: 0;
+  margin-left: 2rem;
+  margin-right: 2rem; }
+
+#itsBanner {
+  height: 4rem;
+  min-width: 50rem;
+  padding: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+#mainHeader {
+  position: absolute;
+  top: 0; }
+
+#mainHeader > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+  #mainHeader > section h1, #mainHeader > section h2 {
+    margin: 0; }
+
+#itsBanner,
+#mainHeader {
+  width: 100%; }
+
+#mainHeader h1 {
+  margin: 0 3rem;
+  text-align: center; }
+
+#mainFooter {
+  margin-top: 0.5rem; }
+
+#mainFooter nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
+
+#mainFooter ul {
+  padding: 0;
+  margin: 0 auto; }
+
+/*# sourceMappingURL=mona-section.css.map */
