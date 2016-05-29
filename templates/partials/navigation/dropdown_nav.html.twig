@@ -36,16 +36,16 @@ ng-controller="Dropdown"
 {% import _self as nv %}
 {# Limit depth of dropdown menu to 1 #}
 {% if depth < 1 %}
-  <div class="navSplit" ></div>
   <nav 
   class="{{dropdownId}}" 
   ng-hide="isHidden" 
   ng-init="init('{{dropdownId}}')"
   >
     <ul>
-    {% for p in pg.children.visible %}
-      {{ nv.dropdown_nav(p, depth+1, dropdownId) }}
-    {% endfor %}  
+      <div class="navSplit" ></div>
+      {% for p in pg.children.visible %}
+        {{ nv.dropdown_nav(p, depth+1, dropdownId) }}
+      {% endfor %}  
     </ul>
   </nav>
 {% endif %}
