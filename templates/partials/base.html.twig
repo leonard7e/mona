@@ -7,7 +7,9 @@
     {{ assets.css() }}
     {% block javascript %}
     {% do assets.addJs('http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js') %}
-    {% do assets.addJs('theme://js/mona.js', {'group':'mona'}) %}
+    {% do assets.addJs('http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.js') %}
+    {% do assets.addJs('theme://js/mona.js') %}
+    {% do assets.addJs('theme://js/controllers/MainController.js', {'group':'MonaAngular'}) %}
     {% endblock %}
     {{ assets.js() }}
     <meta charset="utf-8">
@@ -37,5 +39,6 @@
       {% include 'partials/footer.html.twig' %}
     </main>
   </body>
-  {{ assets.js('mona') }}
+  {{ assets.js('Mona') }}    
+  {{ assets.js('MonaAngular') }}    
 </html>

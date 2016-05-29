@@ -1,13 +1,17 @@
 // Visibility of menu items
-#mainNavigation > ul > li.menu > nav
-    display: none
+#mainNavigation li.toplevel-menu > nav[aria-hidden="true"]
+    opacity: 0
+    
+    //display: none
 
-#mainNavigation > ul > li.menu:hover > nav
-    display: block
+// #mainNavigation li.toplevel-menu > nav:hover,
+#mainNavigation li.toplevel-menu > nav
+    opacity: 1
     position: absolute
+    // display: block
 
 // Placement of menu items
-#mainNavigation > ul > li.menu
+#mainNavigation li.toplevel-menu
     display: inline-block
 
 // #mainNavigation > ul ul::before

@@ -79,23 +79,15 @@ main > aside ul,
   background-image: url("../images/HgrBanner.jpeg");
   background-position: bottom; }
 
-#mainNavigation > ul > li.menu > nav {
-  display: none; }
+#mainNavigation li.toplevel-menu > nav[aria-hidden="true"] {
+  opacity: 0; }
 
-#mainNavigation > ul > li.menu:hover > nav {
-  display: block;
+#mainNavigation li.toplevel-menu > nav {
+  opacity: 1;
   position: absolute; }
 
-#mainNavigation > ul > li.menu {
+#mainNavigation li.toplevel-menu {
   display: inline-block; }
-
-@keyframes MoveMenu {
-  from {
-    transform: translate(0, -100%); }
-  to {
-    transform: translate(0, 0); } }
-#mainNavigation ul > li.menu:hover > nav > ul {
-  animation: MoveMenu 1s ease-out; }
 
 @keyframes MoveMenu {
   from {
@@ -180,7 +172,10 @@ main > aside ul,
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.35); }
 
 #mainNavigation nav {
-  overflow: hidden; }
+  overflow: hidden;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px; }
 
 #mainFooter {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6); }

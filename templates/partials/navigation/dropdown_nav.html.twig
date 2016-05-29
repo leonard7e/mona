@@ -1,32 +1,78 @@
 {% macro navigation(pg) %}
-  <div class="navSplit" ></div>
+{% import _self as nv %}
+<nav 
+id="mainNavigation" 
+ng-controller="MainDropdownNav"
+role="navigation" 
+>
   <ul>
     {% for p in pg.children.visible %}
-      <li class="menu">
-        {% if p.children.visible.count > 0 %}
-          <a 
-            class="navItem" 
-            tabindex="0"
-            href="{{ p.url }}" > 
-            {{ p.menu() }} 
-          </a>
-          <nav>
-            {{ _self.navigation (p)}}            
-          </nav>
-        {% else %}
-          <a 
-            class="navItem" 
-            tabindex="0"
-            href="{{ p.url() }}" > 
-            {{ p.menu() }} 
-          </a>    
-        {% endif %}
-      </li>
+    {# Generate a dropdown identity. #}
+    {% set dropdownId = (p.menu | replace({'ö': "oe",'Ö': "oe", 'ä': "ae", 'Ä': "ae", 'ü':"ue", 'Ü':"ue", 'ß':"ss"}) | hyphenize) %}
+    {{ nv.dropdown_nav(p, 0, dropdownId) }}
     {% endfor %}  
   </ul>
+</nav>
 {% endmacro %}
 
-{% import _self as nav %}
-<nav id="mainNavigation">
-{{ nav.navigation (pages)}}
-</nav>
+{% macro dropdown_nav(p, depth, dropdownId) %}
+{% import _self as nv %}
+<li 
+class="{{ nv.menu_type(depth) }}" 
+{% if depth == 0 %}
+ng-controller="Dropdown"
+{% endif %}
+>
+  {% if p.children.visible.count > 0 %}
+    {{ nv.nav_item(p, dropdownId) }} 
+    {{ nv.nav_recursion (p, depth, dropdownId )}} 
+  {% else %}
+    {{ nv.nav_item(p, dropdownId) }}
+  {% endif %}
+</li>
+{% endmacro %}
+
+{% macro nav_recursion(pg, depth, dropdownId) %}
+{% import _self as nv %}
+{# Limit depth of dropdown menu to 1 #}
+{% if depth < 1 %}
+  <div class="navSplit" ></div>
+  <nav 
+  class="{{dropdownId}}" 
+  ng-hide="isHidden" 
+  ng-init="init('{{dropdownId}}')"
+  >
+    <ul>
+    {% for p in pg.children.visible %}
+      {{ nv.dropdown_nav(p, depth+1, dropdownId) }}
+    {% endfor %}  
+    </ul>
+  </nav>
+{% endif %}
+{% endmacro %}
+
+{% macro nav_item(p, dropdownid) %}
+<a 
+class="navItem" 
+href="{{ p.url }}"             
+ng-focus="handleFocus('{{dropdownid}}')" 
+ng-controller="NavItem" 
+role="menuitem"
+aria-haspopup="true"
+tabindex="0"
+> 
+  {{ p.menu() }} 
+</a>
+{% endmacro %}
+
+{% macro menu_type(depth) %}
+{% if depth == 0 %}
+toplevel-menu
+{% elseif depth == 1 %}
+menu
+{% elseif depth == 2 %}
+submenu
+{% else %}
+subsubmenu
+{% endif %}
+{% endmacro %}
