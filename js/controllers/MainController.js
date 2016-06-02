@@ -5,24 +5,19 @@ app.controller('MainDropdownNav', function ($scope) {
   });
 });
 
-
 app.controller('Dropdown', function ($scope) {
   $scope.itsId = null;
-  $scope.isHidden = true;
+  $scope.doPopup = false;
   $scope.init = function (target) {
     $scope.itsId = target;
   }
   $scope.$on('showMenu', function (event, target) {
     if (target === $scope.itsId) {
-      $scope.isHidden = false;
+      $scope.doPopup = true;
+      $scope.$digest();
     } else {
-      $scope.isHidden = true;
+      $scope.doPopup = false;
+      $scope.$digest();
     }
   });
-});
-
-app.controller('NavItem', function ($scope) {
-  $scope.handleFocus = function (msg) {
-    $scope.$emit('insideMenu', msg);
-  };
 });

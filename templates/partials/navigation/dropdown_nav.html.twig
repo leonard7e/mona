@@ -17,12 +17,7 @@ role="navigation"
 
 {% macro dropdown_nav(p, depth, dropdownId) %}
 {% import _self as nv %}
-<li 
-class="{{ nv.menu_type(depth) }}" 
-{% if depth == 0 %}
-ng-controller="Dropdown"
-{% endif %}
->
+<li class="{{ nv.menu_type(depth) }}" >
   {% if p.children.visible.count > 0 %}
     {{ nv.nav_item(p, dropdownId) }} 
     {{ nv.nav_recursion (p, depth, dropdownId )}} 
@@ -37,12 +32,12 @@ ng-controller="Dropdown"
 {# Limit depth of dropdown menu to 1 #}
 {% if depth < 1 %}
   <nav 
-  class="{{dropdownId}}" 
-  ng-hide="isHidden" 
+  ng-controller="Dropdown"
+  ng-show="doPopup" 
   ng-init="init('{{dropdownId}}')"
   >
+    <div class="navSplit" ></div>
     <ul>
-      <div class="navSplit" ></div>
       {% for p in pg.children.visible %}
         {{ nv.dropdown_nav(p, depth+1, dropdownId) }}
       {% endfor %}  
@@ -55,8 +50,7 @@ ng-controller="Dropdown"
 <a 
 class="navItem" 
 href="{{ p.url }}"             
-ng-focus="handleFocus('{{dropdownid}}')" 
-ng-controller="NavItem" 
+nav-item="'{{dropdownid}}'" 
 role="menuitem"
 aria-haspopup="true"
 tabindex="0"
