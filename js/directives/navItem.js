@@ -1,17 +1,21 @@
+var emitEnterMenu = function (etype, $scope, $element) {
+  $element.bind(etype, function (msg) {
+    $scope.$emit('menuItemEvent', {
+      type: 'enterMenu',
+      navId: $scope.navItem       
+    });
+  });
+}; 
+  
 app.directive('navItem', function() {
-  var emitInsideMenu = function (etype, $scope, $element) {
-    $element.bind(etype, function (msg) {
-      $scope.$emit('insideMenu', $scope.navItem);
-    });    
-  };
   return {
     'restrict': 'A',
     scope: {
       navItem: '='
     },
     link: function($scope, $element, $attributes) {
-      emitInsideMenu("focus", $scope, $element);
-      emitInsideMenu("mouseenter", $scope, $element);
+      emitEnterMenu("focus", $scope, $element);
+      emitEnterMenu("mouseenter", $scope, $element);
     },
   };
 });
