@@ -36,11 +36,9 @@ app.controller('Dropdown', function ($scope, $document) {
         $scope.itemBlur = false;
       } else if ( msg.type === 'itemBlur') {
         $scope.itemBlur = true;
-        console.log("blur Event Reaction");
         setTimeout(function(){
           // Wait some time
           if ($scope.itemBlur) {
-            console.log("Trigger Popup Down");
             $scope.doPopup=false;
             $scope.itemBlur=false;          
             $scope.$digest();
