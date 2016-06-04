@@ -16,6 +16,12 @@ app.directive('navItem', function() {
     link: function($scope, $element, $attributes) {
       emitEnterMenu("focus", $scope, $element);
       emitEnterMenu("mouseenter", $scope, $element);
+      $element.bind("blur", function (msg){
+        $scope.$emit('menuItemEvent', {
+          type: 'itemBlur',
+          navId: $scope.navItem
+        });
+      });
     },
   };
 });
