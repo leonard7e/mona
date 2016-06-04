@@ -2,8 +2,6 @@
 #mainNavigation li 
     position: relative
 
-.navItem:hover::before,
-.navItem:hover::after,
 .navItem:focus::before,
 .navItem:focus::after
     display: block
@@ -12,12 +10,10 @@
     opacity: 0.6
     
   
-.navItem:hover::before,
 .navItem:focus::before
     content: "❨"
     left: 0
     
-.navItem:hover::after,
 .navItem:focus::after
     content: "❩"
     right: 0

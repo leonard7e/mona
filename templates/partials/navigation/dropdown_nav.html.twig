@@ -2,7 +2,7 @@
 {% import _self as nv %}
 <nav 
 id="mainNavigation" 
-ng-controller="MainDropdownNav"
+ng-controller="DropdownNav"
 role="navigation" 
 >
   <ul>
@@ -34,7 +34,9 @@ role="navigation"
 {% import _self as nv %}
 {# Limit depth of dropdown menu to 1 #}
 {% if depth < 1 %}
-  <nav ng-show="doPopup" >
+  <nav 
+    ng-show="doPopup" 
+    ng-controller="DropdownNav" >
     <div class="navSplit" ></div>
     <ul>
       {% for p in pg.children.visible %}

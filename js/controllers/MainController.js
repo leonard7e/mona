@@ -1,4 +1,4 @@
-app.controller('MainDropdownNav', function ($scope, $document) {
+app.controller('DropdownNav', function ($scope, $document) {
   $scope.$on('menuItemEvent', function (event, msg) {
     if (msg.type === "enterMenu") {
       $scope.$broadcast('popupCtlEvent', {
