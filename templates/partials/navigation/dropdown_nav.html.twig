@@ -35,9 +35,12 @@ role="navigation"
 {# Limit depth of dropdown menu to 1 #}
 {% if depth < 1 %}
   <nav 
+    class="RequireJS"
     ng-cloak
     ng-show="doPopup" 
-    ng-controller="DropdownNav" >
+    ng-controller="DropdownNav" 
+    require-js
+    >
     <div class="navSplit" ></div>
     <ul>
       {% for p in pg.children.visible %}

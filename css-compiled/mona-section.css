@@ -21,6 +21,9 @@ main > aside ul,
   padding: 0;
   margin: 0; }
 
+.RequireJS {
+  display: none; }
+
 #mainFooter {
   color: #ebeceb; }
 
