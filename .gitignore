@@ -1,5 +1,5 @@
 # Git Ignore File
 
-# css-compiled
+css-compiled
 .sass-cache
 .DS_Store
