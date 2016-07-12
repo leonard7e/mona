@@ -7,18 +7,18 @@
 
 #mainSection
     position: relative
-    // padding-top: $banner_height - 1rem
-    padding-top: $banner_height
+    // padding-top: map-get($dimensions, banner_height) - 1rem
+    padding-top: map-get($dimensions, banner_height)
     padding-bottom: 0.5rem
-    min-width: $textwidth
-    max-width: $textwidth * 4 / 3
+    min-width: map-get($dimensions, textwidth)
+    max-width: map-get($dimensions, textwidth) * 4 / 3
     margin: 0 auto
     header h1
         text-align: center
-//    min-width: $textwidth
-//    max-width: $textwidth * 4 / 3
+//    min-width: map-get($dimensions, textwidth)
+//    max-width: map-get($dimensions, textwidth) * 4 / 3
 
 #mainSection .contents
-    padding-right: $sidenav_width
+    padding-right: map-get($dimensions, sidenav_width)
     margin-left: 2rem
     margin-right: 2rem
