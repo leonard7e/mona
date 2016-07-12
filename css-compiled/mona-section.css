@@ -28,8 +28,9 @@ main > aside ul,
   color: #eee8dd; }
 
 #mainNavigation .navFolder,
+#sideNavigation .navItem,
 #mainNavigation .navItem {
-  color: #221c11; }
+  color: #203560; }
 
 #breadcrumbs,
 #sideNavigation h2,
@@ -42,6 +43,9 @@ main > aside ul,
 #mainSection header h1,
 #mainSection .cref {
   color: #ac8e53; }
+
+#mainSection .contents {
+  color: #111722; }
 
 #mainHeader > h1 {
   font-size: 1.6rem; }
@@ -194,7 +198,7 @@ html {
   background: linear-gradient(top, #324467, #42728a) fixed; }
 
 #mainSection {
-  background-color: #eee8dd;
+  background-color: #f2ead9;
   background-image: url("../images/shnw-wasserzeichen.png");
   background-repeat: no-repeat;
   background-position: center; }
