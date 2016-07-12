@@ -22,7 +22,7 @@ role="navigation"
   ng-init="init('{{dropdownId}}')"
   >
   {% if p.children.visible.count > 0 %}
-    {{ nv.nav_folder(p, dropdownId) }}
+    {{ nv.nav_not_routable(p, dropdownId) }}
     {{ nv.nav_recursion (p, depth, dropdownId )}}
   {% else %}
     {{ nv.nav_item(p, dropdownId) }}
@@ -51,20 +51,7 @@ role="navigation"
 {% endif %}
 {% endmacro %}
 
-{% macro nav_item(p, dropdownid) %}
-<a
-class="navItem"
-href="{{ p.url }}"
-nav-item="'{{dropdownid}}'"
-role="menuitem"
-aria-haspopup="true"
-tabindex="0"
->
-{{ p.menu() }}
-</a>
-{% endmacro %}
-
-{% macro nav_folder(p, dropdownid) %}
+{% macro nav_not_routable(p, dropdownid) %}
 <span
 class="navItem"
 nav-item="'{{dropdownid}}'"
@@ -74,6 +61,23 @@ tabindex="0"
 >
 {{ p.menu() }}
 </span>
+{% endmacro %}
+
+{% macro nav_item(p, dropdownid) %}
+{% if p.routable %}
+  <a
+  class="navItem"
+  href="{{ p.url }}"
+  nav-item="'{{dropdownid}}'"
+  role="menuitem"
+  aria-haspopup="true"
+  tabindex="0"
+  >
+  {{ p.menu() }}
+  </a>
+{% else %}
+  {{ nv.nav_not_routable(p,dropdownid)}}
+{% endif %}
 {% endmacro %}
 
 {% macro menu_type(depth) %}
