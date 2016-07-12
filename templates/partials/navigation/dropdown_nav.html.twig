@@ -1,29 +1,29 @@
 {% macro navigation(pg) %}
 {% import _self as nv %}
-<nav 
-id="mainNavigation" 
+<nav
+id="mainNavigation"
 ng-controller="DropdownNav"
-role="navigation" 
+role="navigation"
 >
   <ul>
     {% for p in pg.children.visible %}
     {# Generate a dropdown identity. #}
     {% set dropdownId = (p.menu | replace({'ö': "oe",'Ö': "oe", 'ä': "ae", 'Ä': "ae", 'ü':"ue", 'Ü':"ue", 'ß':"ss"}) | hyphenize) %}
     {{ nv.dropdown_items(p, 0, dropdownId) }}
-    {% endfor %}  
+    {% endfor %}
   </ul>
 </nav>
 {% endmacro %}
 
 {% macro dropdown_items(p, depth, dropdownId) %}
 {% import _self as nv %}
-<li class="{{ nv.menu_type(depth) }}" 
+<li class="{{ nv.menu_type(depth) }}"
   ng-controller="Dropdown"
   ng-init="init('{{dropdownId}}')"
   >
   {% if p.children.visible.count > 0 %}
-    {{ nv.nav_item(p, dropdownId) }} 
-    {{ nv.nav_recursion (p, depth, dropdownId )}} 
+    {{ nv.nav_folder(p, dropdownId) }}
+    {{ nv.nav_recursion (p, depth, dropdownId )}}
   {% else %}
     {{ nv.nav_item(p, dropdownId) }}
   {% endif %}
@@ -34,34 +34,46 @@ role="navigation"
 {% import _self as nv %}
 {# Limit depth of dropdown menu to 1 #}
 {% if depth < 1 %}
-  <nav 
+  <nav
     class="RequireJS"
     ng-cloak
-    ng-show="doPopup" 
-    ng-controller="DropdownNav" 
+    ng-show="doPopup"
+    ng-controller="DropdownNav"
     require-js
     >
     <div class="navSplit" ></div>
     <ul>
       {% for p in pg.children.visible %}
         {{ nv.dropdown_items(p, depth+1, dropdownId) }}
-      {% endfor %}  
+      {% endfor %}
     </ul>
   </nav>
 {% endif %}
 {% endmacro %}
 
 {% macro nav_item(p, dropdownid) %}
-<a 
-class="navItem" 
-href="{{ p.url }}"             
-nav-item="'{{dropdownid}}'" 
+<a
+class="navItem"
+href="{{ p.url }}"
+nav-item="'{{dropdownid}}'"
 role="menuitem"
 aria-haspopup="true"
 tabindex="0"
-> 
-  {{ p.menu() }} 
+>
+{{ p.menu() }}
 </a>
+{% endmacro %}
+
+{% macro nav_folder(p, dropdownid) %}
+<span
+class="navItem"
+nav-item="'{{dropdownid}}'"
+role="menuitem"
+aria-haspopup="true"
+tabindex="0"
+>
+{{ p.menu() }}
+</span>
 {% endmacro %}
 
 {% macro menu_type(depth) %}
