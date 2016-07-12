@@ -1,8 +1,9 @@
 html
-    @include mGradFix(top, darken($themeSiteBgColor,10%), adjust-hue($themeSiteBgColor, -20)) 
+    background-color: map-get($uiColors, backspace)
+    @include mGradFix(top, darken(map-get($uiColors, backspace),10%), adjust-hue(map-get($uiColors, backspace), -20))
 
 #mainSection
-    background-color: $themeContentBgColor
-    background-image: url('../images/shnw-wasserzeichen.png') 
+    background-color: map-get($uiColors, textarea)
+    background-image: url('../images/shnw-wasserzeichen.png')
     background-repeat: no-repeat
     background-position: center

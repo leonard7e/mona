@@ -1,21 +1,19 @@
-// #mainNavigation, 
+// #mainNavigation,
 #mainFooter
-    color: $themeContentBgColor
+    color: map-get($textColors,footer)
 
 #mainNavigation .navFolder,
 #mainNavigation .navItem
-    color: darken($themeLightBannerTextColor,20%)
+    color: map-get($textColors,navitem)
 
-    //    color: $themeSiteBgColor
-    
 #breadcrumbs,
 #sideNavigation h2,
 #sideNavigation .navCurrent
-    color: $themeSiteBgColor
+    color: map-get($textColors,navpos)
 
 #mainHeader h1,
-    color: lighten($themeSiteBgColor, 20%)
+    color: map-get($textColors,sitetitle)
 
 #mainSection header h1,
 #mainSection .cref
-    color: $themeBaseColor
+    color: map-get($textColors,articletitle)

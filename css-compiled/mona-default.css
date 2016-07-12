@@ -25,11 +25,11 @@ main > aside ul,
   display: none; }
 
 #mainFooter {
-  color: #ebeceb; }
+  color: #eee8dd; }
 
 #mainNavigation .navFolder,
 #mainNavigation .navItem {
-  color: #111722; }
+  color: #221c11; }
 
 #breadcrumbs,
 #sideNavigation h2,
@@ -68,14 +68,14 @@ main > aside ul,
   font-family: "Oswald", serif; }
 
 #itsBanner {
-  background-color: #cdbb98;
-  background: -webkit-linear-gradient(top, #d9d2b0, #cdbb98);
-  background: -o-linear-gradient(top, #d9d2b0, #cdbb98);
-  background: -moz-linear-gradient(top, #d9d2b0, #cdbb98);
-  background: linear-gradient(top, #d9d2b0, #cdbb98); }
+  background-color: #ac8e53;
+  background: -webkit-linear-gradient(top, #b8ab6b, #ac8e53);
+  background: -o-linear-gradient(top, #b8ab6b, #ac8e53);
+  background: -moz-linear-gradient(top, #b8ab6b, #ac8e53);
+  background: linear-gradient(top, #b8ab6b, #ac8e53); }
 
 #mainNavigation nav > ul {
-  background-color: #cdbb98; }
+  background-color: #ac8e53; }
 
 #mainNavigation nav > ul,
 #itsBanner {
@@ -158,7 +158,7 @@ main > aside ul,
   outline: none; }
 
 .navItem:hover {
-  opacity: 0.6; }
+  opacity: 0.7; }
 
 #itsBanner,
 #mainSection,
@@ -187,13 +187,14 @@ main > aside ul,
   text-shadow: 1px 1px 1px black; }
 
 html {
+  background-color: #425a8a;
   background: -webkit-linear-gradient(top, #324467, #42728a) fixed;
   background: -o-linear-gradient(top, #324467, #42728a) fixed;
   background: -moz-linear-gradient(top, #324467, #42728a) fixed;
   background: linear-gradient(top, #324467, #42728a) fixed; }
 
 #mainSection {
-  background-color: #ebeceb;
+  background-color: #eee8dd;
   background-image: url("../images/shnw-wasserzeichen.png");
   background-repeat: no-repeat;
   background-position: center; }
