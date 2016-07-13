@@ -8,12 +8,17 @@
     position: relative
     padding-top: map-get($dimensions, banner_height)
     padding-bottom: 0.5rem
-    min-width: map-get($dimensions, textwidth)
-    max-width: map-get($dimensions, textwidth) * 4 / 3
-    margin: 0 auto
-    header h1
-        text-align: center
+    .contents
+        margin-left: 2rem
+        margin-right: 2rem
+    @include break_max(portable)
+        width: 100%
+        .contents
+            margin-left: 1rem
+            margin-right: 1rem
+    @include break_min(medscreen)
+        max-width: map-get($breakpoints, medscreen)
+        margin: 0 auto
 
-#mainSection .contents
-    margin-left: 2rem
-    margin-right: 2rem
+#mainSection header h1
+    text-align: center
