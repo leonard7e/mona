@@ -3,8 +3,6 @@
 // @import "dropdown"
 
 #mainNavigation
-    position: absolute
-    bottom: 0
     width: 100%
     text-align: center
 
@@ -14,3 +12,8 @@
 .navItem,
 .navCurrent
     padding: 0 1.5ex
+
+@include break_min(portable)
+    #mainNavigation
+        bottom: 0
+        position: absolute

@@ -1,5 +1,5 @@
 @mixin break_min($device) {
-  @media(min-width: map-get($breakpoints, $device)) {
+  @media(min-width: map-get($breakpoints, $device) + 1) {
     @content;
   }
 }

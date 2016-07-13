@@ -4,8 +4,15 @@
 
 #mainNavigation li.toplevel-menu nav
     opacity: 1
-    position: absolute
 
 // Placement of menu items
-#mainNavigation li.toplevel-menu
-    display: inline-block
+@include break_min(portable)
+    #mainNavigation li.toplevel-menu
+        display: inline-block
+
+    #mainNavigation li.toplevel-menu nav
+        position: absolute
+
+@include break_max(portable)
+    #mainNavigation li.toplevel-menu
+        display: block

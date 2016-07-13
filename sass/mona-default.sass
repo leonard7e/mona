@@ -4,5 +4,6 @@
 @import "config/index"
 @import "core/index"
 
-#mainSection .contents
-    padding-right: map-get($dimensions, sidenav_width)
+@include break_min(portable)
+    #mainSection .contents
+        padding-right: map-get($dimensions, sidenav_width)
