@@ -13,10 +13,10 @@
   <defs
      id="defs4138">
     <filter
-       height="1.1"
-       width="1"
-       y="-0.090000004"
-       x="0"
+       height="1.2"
+       width="1.0600000000000001"
+       y="-0.10000000000000001"
+       x="-0.029999999999999999"
        id="filter5397"
        style="color-interpolation-filters:sRGB">
       <feFlood
@@ -73,14 +73,15 @@
          x="47.477169"
          id="tspan4143" /></text>
     <text
+       transform="scale(0.95346263,1.0488088)"
        id="text4145"
-       y="1046.9645"
-       x="449.5228"
-       style="font-style:normal;font-weight:normal;font-size:40.72306442px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#758dbd;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter5397)"
+       y="998.98352"
+       x="471.50894"
+       style="font-style:normal;font-weight:normal;font-size:38.82791901px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#758dbd;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter5397)"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Semi-Bold';fill:#758dbd;fill-opacity:1"
-         y="1046.9645"
-         x="449.5228"
+         y="998.98352"
+         x="471.50894"
          id="tspan4147">Selbsthilfenetzwerk für seelische Gesundheit</tspan></text>
   </g>
 </svg>
