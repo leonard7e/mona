@@ -3,10 +3,12 @@
     width: 100%
 
 #mainHeader
+    height: map-get($dimensions, banner_height)
     top: 0
-    h1
-        margin: 0 3rem
+    .Logo
         text-align: center
+        img
+            width: 90%
 
 #itsBanner
     height: auto
@@ -18,4 +20,5 @@
 
 @include break_min(portable)
     #mainHeader
-        height: auto
+        .Logo img
+            width: map-get($breakpoints, portable) / 10 * 9

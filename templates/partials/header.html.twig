@@ -1,10 +1,10 @@
 <section id="itsBanner">
-  <header id="mainHeader"> 
-    <h1>
+  <header id="mainHeader">
+    <div class="Logo">
       <a href="{{ base_url_absolute }}">
-        {{ config.site.title }}
+        <img src="{{ theme_url}}/images/shnw_banner.svg" alt="{{ config.site.title }}" />
       </a>
-    </h1>                      
+    </div>
   </header>
   {% include 'partials/navigation/main_navigation.html.twig' %}
 </section>
