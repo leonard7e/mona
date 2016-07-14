@@ -6,7 +6,7 @@
 
 #mainSection
     position: relative
-    padding-top: map-get($dimensions, banner_height)
+    padding-top: map-get($dimensions, banner_height) + 1.5rem
     padding-bottom: 0.5rem
     width: 100%
 
@@ -15,6 +15,7 @@
         margin-right: 2rem
 
     @include break_max(portable)
+        padding-top: map-get($dimensions, banner_height)
         .contents
             margin-left: 1rem
             margin-right: 1rem
