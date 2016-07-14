@@ -1,14 +1,20 @@
 #itsBanner,
 #mainHeader,
     width: 100%
+#mainHeader .header
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+
 
 #mainHeader
     height: map-get($dimensions, banner_height)
     top: 0
-    .Logo
+    .header
         text-align: center
+        padding: 0 1rem
         img
-            width: 90%
+            width: 80%
 
 #itsBanner
     height: auto
@@ -20,5 +26,8 @@
 
 @include break_min(portable)
     #mainHeader
-        .Logo img
-            width: map-get($breakpoints, portable) / 10 * 9
+        .header
+            img
+                width: map-get($breakpoints, portable)
+            .Sandwich
+                display: none
