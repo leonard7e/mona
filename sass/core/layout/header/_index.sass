@@ -24,10 +24,16 @@
     justify-content: center
     flex-direction: column
 
+#mainHeader .Sandwich
+    cursor: pointer
+    user-select: none
+    -moz-user-select: none
+    -khtml-user-select: none
+    -webkit-user-select: none
+    -o-user-select: none
+
 @include break_min(portable)
     #mainHeader
         .header
             img
                 width: map-get($breakpoints, portable)
-            .Sandwich
-                display: none

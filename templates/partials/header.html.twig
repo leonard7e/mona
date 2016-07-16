@@ -1,11 +1,21 @@
-<section id="itsBanner">
+<section id="itsBanner" ng-controller="Banner">
   <header id="mainHeader">
     <div class="header">
-      <div class="Sandwich">&#9776;</div>
+      <div
+        class="Sandwich"
+        ng-init="init()"
+        role=button
+        ng-click="openSandwich()"
+        ng-show="doSandwich"
+        tabindex="0"
+        >
+        &#9776;
+      </div>
       <a href="{{ base_url_absolute }}">
         <img src="{{ theme_url}}/images/shnw_banner.svg" alt="{{ config.site.title }}" />
       </a>
     </div>
   </header>
+  <div class="navSplit" ng-show="sandwichMenuOpened" > </div>
   {% include 'partials/navigation/main_navigation.html.twig' %}
 </section>

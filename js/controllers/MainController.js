@@ -1,3 +1,16 @@
+app.controller('Banner', function ($scope) {
+  $scope.doSandwich = undefined;
+  $scope.sandwichMenuOpened = undefined;
+  $scope.openSandwich = function() {
+    $scope.sandwichMenuOpened = !$scope.sandwichMenuOpened;
+  };
+
+  $scope.init = function() {
+    $scope.doSandwich = true;
+    $scope.sandwichMenuOpened = false;
+  }
+});
+
 app.controller('DropdownNav', function ($scope, $document) {
   $scope.$on('menuItemEvent', function (event, msg) {
     if (msg.type === "enterMenu") {
@@ -8,7 +21,7 @@ app.controller('DropdownNav', function ($scope, $document) {
       $scope.$broadcast('popupCtlEvent', {
         type: 'itemBlur',
         navId: msg.navId } );
-    } 
+    }
   });
 });
 
@@ -40,7 +53,7 @@ app.controller('Dropdown', function ($scope, $document) {
           // Wait some time
           if ($scope.itemBlur) {
             $scope.doPopup=false;
-            $scope.itemBlur=false;          
+            $scope.itemBlur=false;
             $scope.$digest();
           }
         }, 100);
