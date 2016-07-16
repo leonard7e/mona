@@ -2,17 +2,23 @@
 @import "nav_basics"
 // @import "dropdown"
 
-#mainNavigation
-    width: 100%
-    text-align: center
 
-#mainNavigation
-    line-height: 1.5rem
+@include break_max(portable)
+    #mainNavigation
+        text-align: left
+    #mainNavigation ul li.menu
+        margin: 0 1rem
+
+@include break_min(portable)
+    #mainNavigation
+        bottom: 0
+        text-align: center
+
 
 .navItem,
 .navCurrent
     padding: 0 1.5ex
 
-@include break_min(portable)
-    #mainNavigation
-        bottom: 0
+#mainNavigation
+    line-height: 1.5rem
+    width: 100%
