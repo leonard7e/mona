@@ -4,7 +4,7 @@ app.controller('Banner', function ($scope, $window) {
 
   var query_media = function () {
     var wdt = $window['outerWidth'];
-    if (wdt < 600) {
+    if (wdt <= 700) {
       console.log("Portable mode");
       $scope.doSandwich = true;
       $scope.sandwichMenuOpened = false;
