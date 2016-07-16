@@ -1,14 +1,30 @@
-app.controller('Banner', function ($scope) {
+app.controller('Banner', function ($scope, $window) {
   $scope.doSandwich = undefined;
   $scope.sandwichMenuOpened = undefined;
-  $scope.openSandwich = function() {
-    $scope.sandwichMenuOpened = !$scope.sandwichMenuOpened;
+
+  var query_media = function () {
+    var wdt = $window['outerWidth'];
+    if (wdt < 600) {
+      console.log("Portable mode");
+      $scope.doSandwich = true;
+      $scope.sandwichMenuOpened = false;
+    } else {
+      console.log("Desktop mode")
+      $scope.doSandwich = false;
+      $scope.sandwichMenuOpened = true;
+    }
   };
 
   $scope.init = function() {
-    $scope.doSandwich = true;
-    $scope.sandwichMenuOpened = false;
+    query_media();
   }
+
+  $scope.toggleSandwich = function() {
+    $scope.sandwichMenuOpened = !$scope.sandwichMenuOpened;
+  };
+  $window.onresize = function () {
+    $scope.$apply( query_media )
+  };
 });
 
 app.controller('DropdownNav', function ($scope, $document) {
