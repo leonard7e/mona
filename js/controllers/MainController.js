@@ -5,11 +5,9 @@ app.controller('Banner', function ($scope, $window) {
   var query_media = function () {
     var wdt = $window['outerWidth'];
     if (wdt <= 700) {
-      console.log("Portable mode");
       $scope.doSandwich = true;
       $scope.sandwichMenuOpened = false;
     } else {
-      console.log("Desktop mode")
       $scope.doSandwich = false;
       $scope.sandwichMenuOpened = true;
     }
@@ -22,9 +20,11 @@ app.controller('Banner', function ($scope, $window) {
   $scope.toggleSandwich = function() {
     $scope.sandwichMenuOpened = !$scope.sandwichMenuOpened;
   };
-  $window.onresize = function () {
+  
+  var win = angular.element($window);
+  win.bind('resize', function () {
     $scope.$apply( query_media )
-  };
+  });
 });
 
 app.controller('DropdownNav', function ($scope, $document) {
