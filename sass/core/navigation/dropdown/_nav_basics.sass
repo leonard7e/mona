@@ -2,12 +2,14 @@
 #mainNavigation li > nav,
     display: none
 
-#mainNavigation li:hover > nav,
 #mainNavigation li.Active > nav
     display: block
 
 // Placement of menu items
 @include break_min(portable)
+    #mainNavigation li:hover > nav,
+        display: block
+
     #mainNavigation li.toplevel-menu
         display: inline-block
 

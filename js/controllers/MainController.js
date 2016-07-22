@@ -1,46 +1,76 @@
-app.controller('Banner', function ($scope, $window) {
-  $scope.doSandwich = undefined;
-  $scope.sandwichMenuOpened = undefined;
+app.controller('responsiveDesign', function($scope, $window, $rootScope) {
+  // $scope.breakpoint -> 1 (Portalbe)
+  // $scope.breakpoint -> 2 (Desktop)
+  // $scope.breakpoint -> 3 (Wide Desktop)
+  $scope.breakpoint = undefined;
 
-  var query_media = function () {
-    var wdt = $window['outerWidth'];
-    if (wdt <= 700) {
-      $scope.doSandwich = true;
-      $scope.sandwichMenuOpened = false;
-    } else {
-      $scope.doSandwich = false;
-      $scope.sandwichMenuOpened = true;
+  var win = angular.element($window);
+
+  var update_bpoint = function (bp) {
+    if ($scope.breakpoint !== bp) {
+      $scope.breakpoint = bp;
     }
   };
 
-  $scope.init = function() {
-    query_media();
-  }
-
-  $scope.toggleSandwich = function() {
-    $scope.sandwichMenuOpened = !$scope.sandwichMenuOpened;
+  var query_media_breakpoints = function () {
+    var wdt = $window['innerWidth'];
+    if (wdt <= 700) {
+      update_bpoint(1); // portable mode
+    } else if (wdt <= 900) {
+      update_bpoint(2); // desktop mode
+    } else {
+      update_bpoint(3); // wide desktop mode
+    }
   };
 
-  var win = angular.element($window);
+  // Here we keep tracking our breakpoints for responsive design.
   win.bind('resize', function () {
-    $scope.$apply( query_media )
+    $scope.$apply( query_media_breakpoints )
   });
+
+  // Broadcasting free window-click. Event will be used in descendant controllers.
+  win.bind('click', function (){
+    $rootScope.$broadcast('document.click');
+  });
+
+  // Set breakpoints on page load just now.
+  query_media_breakpoints();
 });
 
-app.controller('DropdownNav', function ($scope, $document) {
+app.controller('Banner', function ($scope) {
+  $scope.sandwichModeActive = function () {
+    return $scope.breakpoint === 1;
+  };
+  $scope.sandwichActive = false;
+
+  $scope.menuOpened = function() {
+    if ($scope.breakpoint > 1) {
+      return true;
+    } else {
+      return $scope.sandwichActive;
+    }
+  };
+
+  $scope.toggleSandwich = function() {
+    $scope.sandwichActive = !$scope.sandwichActive;
+  };
+});
+
+app.controller('DropdownNav', function ($scope) {
   $scope.activeMenu = -1;
 
-
-  $scope.doDisable = function () {
-    $scope.activeMenu = -1;
-  }
   $scope.doActivate = function(menuid) {
     $scope.activeMenu = menuid;
     event.stopPropagation();
   };
+
   $scope.isActive = function(menuid) {
     return $scope.activeMenu === menuid;
   };
 
-  $document.on('click', function (){$scope.$apply($scope.doDisable)});
+  $scope.$on("document.click", function (e, a) {
+    $scope.$apply(function () {
+      $scope.activeMenu = -1;
+    });
+  });
 });

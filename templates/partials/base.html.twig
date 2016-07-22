@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<html
+  lang="{{ grav.language.getActive ?: theme_config.default_lang }}"
+  ng-app="Mona">
   <head>
     {% block stylesheets %}
     {% do assets.addCss('theme://css-compiled/mona-default.css') %}
@@ -18,8 +20,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config.site.title }} --- {{page.title() }}</title>
   </head>
-  <body>
-    <main ng-app="Mona">
+  <body
+    ng-controller="responsiveDesign">
+    <main>
       {% block banner %}
       {% include 'partials/header.html.twig' %}
       {% endblock %}

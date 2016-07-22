@@ -6,7 +6,7 @@
         ng-init="init()"
         role=button
         ng-click="toggleSandwich()"
-        ng-show="doSandwich"
+        ng-show="sandwichModeActive()"
         ng-cloak
         tabindex="0"
         >
@@ -17,6 +17,6 @@
       </a>
     </div>
   </header>
-  <div class="navSplit" ng-show="sandwichMenuOpened" > </div>
+  <div class="navSplit" ng-show="menuOpened()" > </div>
   {% include 'partials/navigation/main_navigation.html.twig' %}
 </section>
