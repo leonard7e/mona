@@ -1,9 +1,10 @@
 // Visibility of menu items
-#mainNavigation li.toplevel-menu nav[aria-hidden="true"]
-    opacity: 0
+#mainNavigation li > nav,
+    display: none
 
-#mainNavigation li.toplevel-menu nav
-    opacity: 1
+#mainNavigation li:hover > nav,
+#mainNavigation li.Active > nav
+    display: block
 
 // Placement of menu items
 @include break_min(portable)

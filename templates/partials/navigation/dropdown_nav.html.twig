@@ -9,8 +9,7 @@ role="navigation"
   <ul>
     {% for p in pg.children.visible %}
     {# Generate a dropdown identity. #}
-    {% set dropdownId = (p.menu | replace({'ö': "oe",'Ö': "oe", 'ä': "ae", 'Ä': "ae", 'ü':"ue", 'Ü':"ue", 'ß':"ss"}) | hyphenize) %}
-    {{ nv.dropdown_items(p, 0, dropdownId) }}
+    {{ nv.dropdown_items(p, 0, loop.index) }}
     {% endfor %}
   </ul>
 </nav>
@@ -19,8 +18,7 @@ role="navigation"
 {% macro dropdown_items(p, depth, dropdownId) %}
 {% import _self as nv %}
 <li class="{{ nv.menu_type(depth) }}"
-  ng-controller="Dropdown"
-  ng-init="init('{{dropdownId}}')"
+  ng-class="{Active:isActive({{dropdownId}})}"
   >
   {% if p.children.visible.count > 0 %}
     {{ nv.nav_not_routable(p, dropdownId) }}
@@ -38,7 +36,7 @@ role="navigation"
   <nav
     class="RequireJS"
     ng-cloak
-    ng-show="doPopup"
+    ng-hide="isActive({{dropdownId}})"
     ng-controller="DropdownNav"
     require-js
     >
@@ -55,7 +53,7 @@ role="navigation"
 {% macro nav_not_routable(p, dropdownid) %}
 <span
 class="navItem"
-nav-item="'{{dropdownid}}'"
+ng-click="doActivate({{dropdownid}})"
 role="menuitem"
 aria-haspopup="true"
 tabindex="0"
@@ -69,9 +67,8 @@ tabindex="0"
   <a
   class="navItem"
   href="{{ p.url }}"
-  nav-item="'{{dropdownid}}'"
+  ng-click="doActivate({{dropdownid}})"
   role="menuitem"
-  aria-haspopup="true"
   tabindex="0"
   >
   {{ p.menu() }}
