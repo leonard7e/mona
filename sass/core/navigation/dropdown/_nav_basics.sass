@@ -1,5 +1,5 @@
 // Visibility of menu items
-#mainNavigation li > nav,
+#mainNavigation li > nav
     display: none
 
 #mainNavigation li.Active > nav
@@ -7,14 +7,15 @@
 
 // Placement of menu items
 @include break_min(portable)
-    #mainNavigation li:hover > nav,
-        display: block
-
     #mainNavigation li.toplevel-menu
         display: inline-block
 
     #mainNavigation li.toplevel-menu nav
         position: absolute
+
+    #mainNavigation li:hover > nav
+        display: block !important
+
 
 @include break_max(portable)
     #mainNavigation li.toplevel-menu

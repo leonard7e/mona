@@ -1,0 +1,10 @@
+#mainHeader .Sandwich
+    display: none
+
+
+@include break_max(portable)
+    #mainHeader .Sandwich
+        display: block
+        cursor: pointer
+        @include user_select(none)
+        outline: none
