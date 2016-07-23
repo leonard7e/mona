@@ -1,0 +1,27 @@
+
+#TableOfContents ul,
+#TableOfContents a
+    padding: 0
+    margin: 0
+
+#TableOfContents li
+    line-height: 2rem
+
+
+@include break_max(portable)
+    #TableOfContents
+        display: block
+
+    #TableOfContents .tocEntry
+        display: block
+
+@include break_min(portable)
+    #TableOfContents
+        display: flex
+        flex-direction: row
+
+    #TableOfContents .tocEntry
+        display: block
+        width: map-get($dimensions, sidenav_width)
+        margin-right: map-get($dimensions, text_margin) / 2
+        margin-bottom: map-get($dimensions, text_margin) / 2
