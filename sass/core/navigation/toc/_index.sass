@@ -1,3 +1,5 @@
+#TableOfContents
+    text-align: left
 
 #TableOfContents ul,
 #TableOfContents a
@@ -5,7 +7,7 @@
     margin: 0
 
 #TableOfContents li
-    line-height: 2rem
+    margin-bottom: 1rem
 
 
 @include break_max(portable)
@@ -23,5 +25,5 @@
     #TableOfContents .tocEntry
         display: block
         width: map-get($dimensions, sidenav_width)
-        margin-right: map-get($dimensions, text_margin) / 2
-        margin-bottom: map-get($dimensions, text_margin) / 2
+        margin-right: map-get($dimensions, text_margin)
+        margin-bottom: map-get($dimensions, text_margin)
