@@ -1,0 +1,33 @@
+#mainNavigation .toplevel-menu > nav > .navSplit:first-of-type,
+#itsBanner > .navSplit
+    z-index: 10
+    position: relative
+    padding: 0
+    height: 2px
+    margin-top: -2px
+    box-shadow: 0 1px 1px transparentize(black, 0.65)
+
+@include break_max(portable)
+    #mainNavigation .toplevel-menu > nav > .navSplit:last-of-type
+        z-index: 10
+        position: relative
+        padding: 0
+        height: 3px
+        //margin-top: -2px
+        box-shadow: 0 -2px 3px transparentize(black, 0.65)
+
+    #mainNavigation .toplevel-menu:last-of-type > nav > .navSplit:last-of-type
+        display: none
+
+@include break_min(portable)
+    #itsBanner > .navSplit
+        display: none
+
+    #mainNavigation nav > ul
+        box-shadow: 0 2px 2px 1px transparentize(black, 0.65)
+
+    #mainNavigation nav
+        overflow: hidden
+        padding-left: 3px
+        padding-right: 3px
+        padding-bottom: 3px
