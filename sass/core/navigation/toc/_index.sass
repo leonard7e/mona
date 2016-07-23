@@ -16,14 +16,18 @@
 
     #TableOfContents .tocEntry
         display: block
+        margin-bottom: map-get($dimensions, text_margin)
 
 @include break_min(portable)
     #TableOfContents
         display: flex
         flex-direction: row
+        flex-wrap: wrap
 
     #TableOfContents .tocEntry
         display: block
-        width: map-get($dimensions, sidenav_width)
+        width: 40%
+        min-width: map-get($dimensions, sidenav_width)
         margin-right: map-get($dimensions, text_margin)
         margin-bottom: map-get($dimensions, text_margin)
+        padding: map-get($dimensions, text_margin)/2
