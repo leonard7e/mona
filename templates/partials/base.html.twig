@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+{% set lang = grav.language.getActive ?: theme_config.default_lang %}
 <html
-  lang="{{ grav.language.getActive ?: theme_config.default_lang }}"
+  lang="{{ lang }}"
   ng-app="Mona">
   <head>
     {% block stylesheets %}
@@ -30,7 +31,7 @@
         {% block sidenav %}
           {% include 'partials/navigation/side_nav.html.twig' %}
         {% endblock %}
-        <div class="contents">
+        <div class="contents" lang="{{lang}}">
           <header>
             {% block header %}
               {% if config.plugins.breadcrumbs.enabled %}

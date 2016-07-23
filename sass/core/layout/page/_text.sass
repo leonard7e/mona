@@ -1,2 +1,7 @@
-#mainSection 
-    text-align: justify
+#mainSection
+    text-align: left
+
+@include break_min(portable)
+    #mainSection
+        @include hyphens (auto)
+        text-align: justify
