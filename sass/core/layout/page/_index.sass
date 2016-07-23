@@ -11,8 +11,8 @@
     width: 100%
 
     .contents
-        margin-left: 2rem
-        margin-right: 2rem
+        margin-left: map-get($dimensions, text_margin)
+        margin-right: map-get($dimensions, text_margin)
 
     @include break_max(portable)
         padding-top: map-get($dimensions, banner_height)
