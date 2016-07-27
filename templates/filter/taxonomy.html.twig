@@ -1,0 +1,32 @@
+<div class="Taxonomy">
+{% set tags = [] %}
+{% set categories = [] %}
+{% for m in page.collection %}
+  {% for t in m.taxonomy.tag %}
+    {% if t not in tags %}
+      {% set tags = tags | merge([t]) %}
+    {% endif %}
+  {% endfor %}
+  {% for c in m.taxonomy.category %}
+    {% if c not in categories %}
+      {% set categories = categories | merge([c]) %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+<p>
+  <h3>Category Filter</h3>
+  <div class="CategoryList">
+    {% for c in categories %}
+      <span class="Category"> {{ c }} </span>
+    {% endfor %}
+  </div>
+</p>
+<p>
+  <h3>Tag Filter</h3>
+  <div class="TagList">
+    {% for t in tags %}
+      <span class="Tag"> {{ t }} </span>
+    {% endfor %}
+  </div>
+</p>
+</div>

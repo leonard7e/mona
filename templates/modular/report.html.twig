@@ -1,0 +1,14 @@
+<div class="modular-report modular-row callout">
+  <header>
+    <h3> {{page.title}} </h3>
+  </header>
+  <p>
+    {{ page.summary }}
+  </p>
+  <footer>
+    <div class="Taxonomy">
+      {% include 'filter/categories.html.twig' %}
+      {% include 'filter/tags.html.twig' %}
+    </div>
+  </footer>
+</div>

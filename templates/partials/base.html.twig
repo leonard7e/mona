@@ -29,7 +29,10 @@
       {% endblock %}
       <section id="mainSection">
         {% block sidenav %}
+        <aside id="sideNavigation">
           {% include 'partials/navigation/side_nav.html.twig' %}
+          {% block sideFilters %} {% endblock %}
+        </aside>
         {% endblock %}
         <div class="contents" lang="{{lang}}">
           <header>
