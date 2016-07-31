@@ -1,0 +1,17 @@
+<div class="BlogItem">
+  <header>
+    <h3> <a href="{{page.url}}">
+      {{page.title}}
+    </a>
+  </h3>
+  </header>
+  <p>
+    {{ page.summary }}
+  </p>
+  <footer>
+    <div class="Taxonomy">
+      {% include 'filter/categories.html.twig' %}
+      {% include 'filter/tags.html.twig' %}
+    </div>
+  </footer>
+</div>
