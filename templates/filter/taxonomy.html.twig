@@ -17,15 +17,28 @@
   <h3>Category Filter</h3>
   <div class="CategoryList">
     {% for c in categories %}
-      <span class="Category"> {{ c }} </span>
+      <span
+        class="Category"
+        tabindex="0"
+        ng-class='{Active: taxIsActive({"category": ["{{c}}"]}), TaxEmpty: taxIsEmpty() }'
+        ng-click='taxSwitch("category","{{c}}")'
+        > {{ c }}
+      </span>
     {% endfor %}
   </div>
 </p>
 <p>
   <h3>Tag Filter</h3>
-  <div class="TagList">
+  <div class="TagList"
+    >
     {% for t in tags %}
-      <span class="Tag"> {{ t }} </span>
+      <span class="Tag"
+        tabindex="0"
+        ng-class='{Active: taxIsActive({"tag": ["{{t}}"]}), TaxEmpty: taxIsEmpty() }'
+        ng-click='taxSwitch("tag","{{t}}")'
+        >
+      {{ t }}
+    </span>
     {% endfor %}
   </div>
 </p>

@@ -13,6 +13,7 @@
     {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.js') %}
     {% do assets.addJs('theme://js/mona.js') %}
     {% do assets.addJs('theme://js/controllers/MainController.js', {'group':'MonaAngular'}) %}
+    {% do assets.addJs('theme://js/controllers/Taxonomy.js', {'group':'MonaAngular'}) %}
     {% do assets.addJs('theme://js/directives/navItem.js', {'group':'MonaAngular'}) %}
     {% do assets.addJs('theme://js/directives/requireJs.js', {'group':'MonaAngular'}) %}
     {% endblock %}
@@ -27,7 +28,10 @@
       {% block banner %}
       {% include 'partials/header.html.twig' %}
       {% endblock %}
-      <section id="mainSection">
+      <section
+        id="mainSection"
+        ng-controller="taxonomy"
+        ng-init='init_taxonomy({"category":[], "tag":[]})'>
         {% block sidenav %}
         <aside id="sideNavigation">
           {% include 'partials/navigation/side_nav.html.twig' %}

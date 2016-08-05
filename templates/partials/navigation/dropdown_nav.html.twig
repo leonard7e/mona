@@ -15,16 +15,19 @@ role="navigation"
 </nav>
 {% endmacro %}
 
+{% set collection = ["blog"] %}
+
 {% macro dropdown_items(p, depth, dropdownId) %}
 {% import _self as nv %}
 <li class="{{ nv.menu_type(depth) }}"
   ng-class="{Active:isActive({{dropdownId}})}"
   >
-  {% if p.children.visible.count > 0 %}
+  {% if depth >= 1 %}
+    {{ nv.nav_item(p, dropdownId) }}
+    {# {% if p.children ..... %}{% endif %} #}
+  {% else %}
     {{ nv.nav_not_routable(p, dropdownId) }}
     {{ nv.nav_recursion (p, depth, dropdownId )}}
-  {% else %}
-    {{ nv.nav_item(p, dropdownId) }}
   {% endif %}
 </li>
 {% endmacro %}
