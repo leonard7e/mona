@@ -1,6 +1,8 @@
+{% set tax = page.taxonomy | json_encode() %}
 <div
   class="BlogItem"
-  ng-class='{Active:taxIsActive({{page.taxonomy | json_encode()}}), TaxEmpty: taxIsEmpty()}'
+  ng-class='{Active:taxShowBlogItem({{tax}})}'
+  ng-init='taxInit({{tax}})'
   >
   <header>
     <h3> <a href="{{page.url}}">

@@ -20,8 +20,15 @@
       <span
         class="Category"
         tabindex="0"
-        ng-class='{Active: taxIsActive({"category": ["{{c}}"]}), TaxEmpty: taxIsEmpty() }'
-        ng-click='taxSwitch("category","{{c}}")'
+        ng-class='
+          {
+            Active: taxSwitchActive("category",{
+              "category": ["{{c}}"],
+              "tag": []
+            }),
+            Hide: taxHideCategorySwitch("{{c}}")
+          }'
+        ng-click='taxDoSwitch("category","{{c}}")'
         > {{ c }}
       </span>
     {% endfor %}
@@ -34,8 +41,15 @@
     {% for t in tags %}
       <span class="Tag"
         tabindex="0"
-        ng-class='{Active: taxIsActive({"tag": ["{{t}}"]}), TaxEmpty: taxIsEmpty() }'
-        ng-click='taxSwitch("tag","{{t}}")'
+        ng-class='
+          {
+            Active: taxSwitchActive("tag",{
+              tag: ["{{t}}"],
+              category:[]
+            }),
+            Hide: taxHideTagSwitch("{{t}}")
+          }'
+        ng-click='taxDoSwitch("tag","{{t}}")'
         >
       {{ t }}
     </span>
