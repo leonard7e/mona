@@ -9,13 +9,20 @@
 .BlogItem.TaxEmpty
     display: block
 
+.SideNav .TagList,
+.SideNav .CategoryList
+    display: flex
+    flex-wrap: wrap
+
 .SideNav .Tag,
 .SideNav .Category
     border-radius: 0.5rem
     border-width: thin
     border-style: solid
     border-color: transparentize(map-get($uiColors, backspace), 0.75)
-    padding: 0 1ex
+    margin-right: 1ex
+    margin-bottom: 1ex
+    padding: 0 0.5ex
     cursor: pointer
     outline: none
     @include user_select(none)
