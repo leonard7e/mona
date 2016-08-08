@@ -1,0 +1,21 @@
+title: Events
+'@extends':
+  type: default
+  context: blueprints://pages
+
+form:
+  validation: loose
+  fields:
+    title:
+      type: text
+      label: events come here
+    location:
+      type: text
+      size: large
+      label: Location where event occours
+    occurence:
+      type: datetime
+      label: Select datetime
+    description:
+      type: editor
+      label: Describe event here

@@ -3,13 +3,13 @@
 {% block content %}
 {{ page.content }}
 {% for item in page.collection() %}
-{% include 'partials/blog-item.html.twig' with {page: item} %}
+{% include 'modular/event.html.twig' with {page: item} %}
 {% endfor %}
 {% endblock %}
 
 
 {% block sideFilters %}
 <nav class = "SideNav">
-  {% include "filter/taxonomy.html.twig" %}
+<strong>Todo</strong>
 </nav>
 {% endblock %}
