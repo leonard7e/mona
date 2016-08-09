@@ -1,0 +1,22 @@
+#TimeTable
+    margin: 0 -1eM
+
+#TimeTable table
+    width: 100%
+    border-spacing: 1eM 0.5rem
+    border-collapse: separate
+
+#TimeTable .EventDate
+    white-space: nowrap
+
+#TimeTable .EventTitle
+    a
+        font-weight: bold
+        color: map-get($textColors, navitem)
+
+#TimeTable .EventTown::before
+    content: "("
+    margin-left: 1eM
+
+#TimeTable .EventTown::after
+    content: ")"

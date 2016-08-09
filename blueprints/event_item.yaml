@@ -1,0 +1,23 @@
+title: Events
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        tab_event:
+          type: tab
+          title: Event
+          fields:
+            header.date:
+              type: datetime
+              label: Set date of event
+            header.town:
+              type: text
+              label: Town
+            header.adress:
+              type: textarea
+              label: Adress

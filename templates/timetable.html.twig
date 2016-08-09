@@ -2,9 +2,15 @@
 
 {% block content %}
 {{ page.content }}
-{% for item in page.collection() %}
-{% include 'modular/event.html.twig' with {page: item} %}
-{% endfor %}
+<div id="TimeTable">
+  <table>
+    <tbody>
+    {% for item in page.collection().visible() %}
+    {% include 'partials/event.html.twig' with {page: item} %}
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}
 
 

@@ -1,0 +1,17 @@
+<div class="Event">
+  <tr>
+    <td class="EventDate">
+      <a href="{{ page.url }}">
+        {{ page.header.date | date ("d. m. Y") }}
+      </a>
+    </td>
+    <td class="EventTitle">
+      <a href="{{ page.url }}">
+        {{ page.title }}
+      </a>
+      <span class="EventTown">
+        {{ page.header.town }}
+      </span>
+    </td>
+  </tr>
+</div>
