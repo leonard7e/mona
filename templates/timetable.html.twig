@@ -6,7 +6,7 @@
   <table>
     <tbody>
     {% for item in page.collection().visible() %}
-    {% include 'partials/event.html.twig' with {page: item} %}
+    {% include 'partials/event-item-repr.html.twig' with {page: item} %}
     {% endfor %}
     </tbody>
   </table>

@@ -5,12 +5,6 @@
 {% endblock %}
 
 {% block content %}
-{{ page.content }}
-
-{% endblock %}
-
-{% block header %}
-<h1>{{ page.title() }}</h1>
 <div class="Event">
   <div>
     {{ page.header.town }}. <br/>
@@ -21,6 +15,7 @@
     {{ page.header.date | date ("H:i") }} Uhr.
   </div>
 </div>
+{{ page.content }}
 {% endblock %}
 
 {% block sidenav %} {% endblock %}

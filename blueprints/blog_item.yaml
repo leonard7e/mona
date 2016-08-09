@@ -1,0 +1,16 @@
+title: Blog Item
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        tab_blogitem:
+          type: tab
+          title: Blog Item
+          fields:
+            header.blogitem:
+              label: TODO

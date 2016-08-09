@@ -1,0 +1,19 @@
+title: Blog
+'@extends': default
+
+child_type: blog_item
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        tab_blog:
+          type: tab
+          title: Blog
+          fields:
+            header.blog.filt.enable:
+              type: checkbox
+              label: Enable taxonomy filtering

@@ -1,4 +1,4 @@
-title: Events
+title: Event Item
 '@extends': default
 
 form:
@@ -10,7 +10,7 @@ form:
       fields:
         tab_event:
           type: tab
-          title: Event
+          title: Event Item
           fields:
             header.date:
               type: datetime
