@@ -31,18 +31,18 @@
       <section
         id="mainSection"
         ng-controller="taxonomy" >
-        {% block sidenav %}
+        {% if config.plugins.breadcrumbs.enabled %}
+        {% include 'partials/breadcrumbs.html.twig' %}
+        {% endif %}
         <aside id="sideNavigation">
+        {% block sidenav %}
           {% include 'partials/navigation/side_nav.html.twig' %}
           {% block sideFilters %} {% endblock %}
-        </aside>
         {% endblock %}
+        </aside>
         <div class="contents" lang="{{lang}}">
           <header>
             {% block header %}
-              {% if config.plugins.breadcrumbs.enabled %}
-              {% include 'partials/breadcrumbs.html.twig' %}
-              {% endif %}
               <h1>{{ page.title() }}</h1>
             {% endblock %}
           </header>

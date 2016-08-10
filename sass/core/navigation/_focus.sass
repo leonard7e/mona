@@ -1,22 +1,9 @@
 #sideNavigation .SideNav li a,
-#mainNavigation li 
+#mainNavigation li
     position: relative
 
-.navItem:focus::before,
-.navItem:focus::after
-    display: block
-    position: absolute
-    bottom: 0
-    opacity: 0.6
-    
-  
-.navItem:focus::before
-    content: "❨"
-    left: 0
-    
-.navItem:focus::after
-    content: "❩"
-    right: 0
-
-.navItem:focus
+.navItem:focus,
+.SideNav .Taxonomy.Switches .Tag:focus,
+.SideNav .Taxonomy.Switches .Category:focus
     outline: none
+    text-decoration: underline

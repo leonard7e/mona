@@ -50,8 +50,8 @@ app.controller('taxonomy', function($scope){
   }
 
   // ---
-  $scope.taxShowBlogItem = function (tax) {
-    return tax_match(tax, "category", true) && tax_match(tax, "tag", true);
+  $scope.taxHideBlogItem = function (tax) {
+    return !(tax_match(tax, "category", true) && tax_match(tax, "tag", true));
   };
 
   // ---

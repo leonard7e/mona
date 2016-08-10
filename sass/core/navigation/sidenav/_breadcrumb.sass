@@ -11,3 +11,7 @@
 #breadcrumbs i::before
     content: "•"
     font-style: normal
+
+@include break_max(portable)
+    #breadcrumbs
+        margin: 0.5rem map-get($dimensions, text_margin) / 2

@@ -1,0 +1,27 @@
+.SideNav .Taxonomy .Active
+    background-color: transparentize(map-get($uiColors, menu), 0.75)
+    border-radius: 1rem
+
+.SideNav .Tag,
+.SideNav .Category
+    line-height: 1.5em
+    margin-left: -0.5rem
+    margin-right: 1rem
+    margin-bottom: 0.5rem
+    padding: 0 0.5rem
+
+.SideNav .Taxonomy .Tag,
+.SideNav .Taxonomy .Category
+    cursor: pointer
+    @include user_select(none)
+
+@include break_max(portable)
+    .SideNav .Taxonomy
+        display: flex
+        flex-direction: row
+
+    .SideNav .Taxonomy div
+        width: 50%
+
+    // .SideNav .Taxonomy :first-child
+    //     width: 100%

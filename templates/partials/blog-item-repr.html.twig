@@ -1,7 +1,7 @@
 {% set tax = page.taxonomy | json_encode() %}
 <div
   class="BlogItem"
-  ng-class='{Active:taxShowBlogItem({{tax}})}'
+  ng-class='{Hide:taxHideBlogItem({{tax}})}'
   ng-init='taxInit({{tax}})'
   >
   <header>
@@ -13,10 +13,4 @@
   <p>
     {{ page.summary }}
   </p>
-  <footer>
-    <div class="Taxonomy">
-      {% include 'filter/categories.html.twig' %}
-      {% include 'filter/tags.html.twig' %}
-    </div>
-  </footer>
 </div>

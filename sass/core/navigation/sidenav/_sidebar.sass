@@ -1,10 +1,3 @@
-#sideNavigation
-    position: absolute
-    display: block
-    width: map-get($dimensions, sidenav_width)
-    left: map-get($dimensions, text_margin) / 2
-    top: map-get($dimensions, sidenav_topspace)
-    text-align: left
 
 #sideNavigation .navItem,
 #sideNavigation .navCurrent,
@@ -19,6 +12,23 @@
     margin: 0
     padding: 0
 
+#sideNavigation
+    text-align: left
+
+@include break_min(portable)
+    #sideNavigation
+        position: absolute
+        width: map-get($dimensions, sidenav_width)
+        top: map-get($dimensions, sidenav_topspace)
+        margin: 0 map-get($dimensions, text_margin)
+
+
+
 @include break_max(portable)
     #sideNavigation
+        position: relative
+        width: auto
+        margin: 0 map-get($dimensions, text_margin) / 2
+
+    #sideNavigation .SideNav:first-of-type
         display: none

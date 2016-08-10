@@ -6,6 +6,19 @@
 
 {% block content %}
 {{ page.content }}
+<footer>
+  <div class="Taxonomy RequireJS" require-js>
+    <div>
+      <h4>Kategorien</h4>
+      {% include 'filter/categories.html.twig' %}
+    </div>
+    <div>
+      <h4>Schlagworte</h4>
+      {% include 'filter/tags.html.twig' %}
+    </div>
+  </div>
+</footer>
 {% endblock %}
 
-{% block sidenav %} {% endblock %}
+{% block sidenav %}
+{% endblock %}

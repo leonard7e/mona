@@ -1,31 +1,16 @@
-.Tag.Hide,
-.Category.Hide
-    display: none
+@import "blog_item"
+@import "side_nav"
+@import "hide"
 
-.Taxonomy .Active
-    background-color: transparentize(map-get($uiColors, menu), 0.5)
+.Taxonomy
+    text-align: left
 
-.BlogItem.Active,
-.BlogItem.TaxEmpty
-    display: block
-
-.SideNav .TagList,
-.SideNav .CategoryList
+.Taxonomy .TagList,
+.Taxonomy .CategoryList
     display: flex
     flex-wrap: wrap
+    flex-direction: row
 
-.SideNav .Tag,
-.SideNav .Category
-    border-radius: 0.5rem
-    border-width: thin
-    border-style: solid
-    border-color: transparentize(map-get($uiColors, backspace), 0.75)
-    margin-right: 1ex
-    margin-bottom: 1ex
-    padding: 0 0.5ex
-    cursor: pointer
-    outline: none
-    @include user_select(none)
-
-.BlogItem
-    display: none
+.Taxonomy .Category,
+.Taxonomy .Tag
+    white-space: nowrap
