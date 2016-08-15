@@ -1,28 +1,17 @@
-#itsBanner,
-#mainHeader,
-    width: 100%
-#mainHeader .header
-    display: flex
-    flex-direction: row
-    justify-content: space-around
-
+@import "banner"
 
 #mainHeader
     height: map-get($dimensions, banner_height)
     top: 0
-    .header
-        text-align: center
-        padding: 0 1rem
-        img
-            width: 100%
 
-#itsBanner
-    height: auto
-    padding: 0
-    z-index: 10
+#mainHeader .header
     display: flex
-    justify-content: center
-    flex-direction: column
+    text-align: center
+    padding: 0 1rem
+    flex-direction: row
+    justify-content: space-around
+    img
+        width: 100%
 
 @include break_min(portable)
     #mainHeader

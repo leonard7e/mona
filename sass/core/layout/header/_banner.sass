@@ -1,0 +1,14 @@
+#itsBanner
+    position: fixed
+    width: 100%
+    height: auto
+    padding: 0
+    z-index: 10
+    display: flex
+    justify-content: center
+    flex-direction: column
+
+@include break_min(medscreen)
+    #itsBanner
+        max-width: map-get($breakpoints, medscreen)
+        left: calc(50% - #{map-get($breakpoints, medscreen) / 2})
