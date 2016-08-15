@@ -2,23 +2,24 @@
     background-color: transparentize(map-get($uiColors, menu), 0.75)
     border-radius: 1rem
 
+#sideNavigation .SideNav .Switches h4 .toExpand::after
+    content: "+"
+
+#sideNavigation .SideNav .Switches h4.Active .toExpand::after
+    content: "-"
+
 .SideNav .Tag,
-.SideNav .Category
-    line-height: 1.5em
-    margin-left: -0.5rem
-    margin-right: 1rem
+.SideNav .Category,
+.SideNav h4
+    line-height: 1.6em
     margin-bottom: 0.5rem
     padding: 0 0.5rem
 
 .SideNav .Taxonomy .Tag,
-.SideNav .Taxonomy .Category
+.SideNav .Taxonomy .Category,
+#sideNavigation .SideNav .Switches h4
     cursor: pointer
     @include user_select(none)
 
 .SideNav .Taxonomy div
     width: 100%
-
-@include break_max(portable)
-    .SideNav .Taxonomy
-        display: flex
-        flex-direction: row

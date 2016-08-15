@@ -1,4 +1,3 @@
-<div class="Taxonomy Switches">
 {% set tags = [] %}
 {% set categories = [] %}
 {% for m in page.collection %}
@@ -13,8 +12,12 @@
     {% endif %}
   {% endfor %}
 {% endfor %}
-  <div>
-    <h4>Kategorien</h4>
+<div class="Taxonomy Switches" >
+  <div ng-init="filterInit(0)">
+    <h4 ng-click="filterSwitch(0)" ng-class="{Active: filterIsActive(0)}">
+      Filtriere Kategorien
+       <span class="toExpand"></span>
+     </h4>
     <div class="CategoryList">
       {% for c in categories %}
         <span
@@ -34,9 +37,12 @@
       {% endfor %}
     </div>
   </div>
-  <div>
-    <h4>Schlagworte</h4>
-    <div class="TagList" >
+  <div ng-init="filterInit(1)">
+    <h4 ng-click="filterSwitch(1)" ng-class="{Active: filterIsActive(1)}">
+      Filtriere Schlagworte
+       <span class="toExpand"></span>
+     </h4>
+    <div class="TagList">
       {% for t in tags %}
         <span class="Tag"
           tabindex="0"

@@ -34,19 +34,21 @@
         {% if config.plugins.breadcrumbs.enabled %}
         {% include 'partials/breadcrumbs.html.twig' %}
         {% endif %}
-        <aside id="sideNavigation">
-        {% block sidenav %}
-          {% include 'partials/navigation/side_nav.html.twig' %}
-          {% block sideFilters %} {% endblock %}
-        {% endblock %}
-        </aside>
-        <div class="contents" lang="{{lang}}">
-          <header>
-            {% block header %}
-              <h1>{{ page.title() }}</h1>
-            {% endblock %}
-          </header>
-          {% block content %}{% endblock %}
+        <div class="Container">           
+          <aside id="sideNavigation" ng-controller="sidebarCtrl">
+          {% block sidenav %}
+            {% include 'partials/navigation/side_nav.html.twig' %}
+            {% block sideFilters %} {% endblock %}
+          {% endblock %}
+          </aside>
+          <div class="contents" lang="{{lang}}">
+            <header>
+              {% block header %}
+                <h1>{{ page.title() }}</h1>
+              {% endblock %}
+            </header>
+            {% block content %}{% endblock %}
+          </div>
         </div>
       </section>
       {% include 'partials/footer.html.twig' %}

@@ -4,17 +4,14 @@
 #breadcrumbs
     text-align: left
     height: auto
-    margin: 0.5rem 0
-    padding-left: 0
+    margin-top: map-get($dimensions, text_margin) / 2
+    margin-left: map-get($dimensions, text_margin) / 2
     line-height: 1.6rem
 
 #breadcrumbs i::before
     content: "•"
     font-style: normal
 
-#breadcrumbs
-    margin: 0.5rem map-get($dimensions, text_margin)
-
 @include break_max(portable)
     #breadcrumbs
-        margin: 0.5rem map-get($dimensions, text_margin) / 2
+        display: none

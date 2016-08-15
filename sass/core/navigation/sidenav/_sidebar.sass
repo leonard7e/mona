@@ -14,13 +14,17 @@
 
 #sideNavigation
     text-align: left
+    border-style: solid
+    border-color: transparentize(map-get($uiColors, menu), 0.75)
+    border-radius: 2rem
+    .SideNav
+        margin: 1rem
 
 @include break_min(portable)
     #sideNavigation
         position: absolute
         width: map-get($dimensions, sidenav_width)
-        top: map-get($dimensions, sidenav_topspace)
-        margin: 0 map-get($dimensions, text_margin)
+        margin: 0 map-get($dimensions, text_margin) / 2
 
 
 
@@ -28,7 +32,4 @@
     #sideNavigation
         position: relative
         width: auto
-        margin: 0 map-get($dimensions, text_margin) / 2
-
-    #sideNavigation .SideNav:first-of-type
-        display: none
+        margin: map-get($dimensions, banner_height) map-get($dimensions, text_margin) / 2
