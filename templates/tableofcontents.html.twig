@@ -1,7 +1,7 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block stylesheets %}
-{% do assets.addCss('theme://css-compiled/mona-section.css') %}
+{% do assets.addCss('theme://css-compiled/mona-default.css') %}
 {% endblock %}
 
 {% block content %}
@@ -14,7 +14,7 @@
       <li> <a class="navItem" href="{{p.url}}">{{p.title}}</a></li>
       {% endfor %}
     </ul>
-  </div>  
+  </div>
   {% endfor %}
 </div>
 {% endblock %}
