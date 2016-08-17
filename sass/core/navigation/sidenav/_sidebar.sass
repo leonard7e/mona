@@ -22,14 +22,8 @@
 
 @include break_min(portable)
     #sideNavigation
-        position: absolute
-        width: map-get($dimensions, sidenav_width)
-        margin: 0 map-get($dimensions, text_margin) / 2
-
-
+        flex: 0 0 map-get($dimensions, sidenav_width)
 
 @include break_max(portable)
-    #sideNavigation
-        position: relative
-        width: auto
-        margin: map-get($dimensions, banner_height) map-get($dimensions, text_margin) / 2
+    #sideNavigation .SideNav:first-of-type
+        display: none

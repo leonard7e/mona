@@ -1,8 +1,9 @@
-#mainSection
-    text-align: left
+#mainSection .Container
+    margin: 0 map-get($dimensions, text_margin)
 
 @include break_min(portable)
     #mainSection
         @include hyphens (auto)
         text-align: justify
-        min-height: map-get($breakpoints, medscreen) * 3/4
+        h1, h2, h3, h4, h5, h6, nav
+            text-align: left
