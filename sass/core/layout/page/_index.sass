@@ -3,24 +3,20 @@
 @import "timetable"
 
 #mainSection
-    position: relative
     padding-top: map-get($dimensions, banner_height) + 1.5rem
     padding-bottom: 0.5rem
     width: 100%
 
-    .contents
-        margin-left: map-get($dimensions, text_margin)
-        margin-right: map-get($dimensions, text_margin)
-
+#mainSection .Container
+    display: flex
+    @include break_min(portable)
+        flex-direction: row
     @include break_max(portable)
-        padding-top: map-get($dimensions, banner_height)
-        .contents
-            margin-left: 1rem
-            margin-right: 1rem
+        flex-direction: column
 
+#mainSection
     @include break_min(medscreen)
         max-width: map-get($breakpoints, medscreen)
         margin: 0 auto
-
-#mainSection header h1
-    text-align: left
+        .contents
+            margin-left: map-get($dimensions, text_margin)
