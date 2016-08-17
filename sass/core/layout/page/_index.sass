@@ -19,9 +19,9 @@
 
     @include break_min(portable)
         padding-top: map-get($dimensions, banner_height) + 1.5rem
+        .contents
+            margin-left: map-get($dimensions, text_margin)
 
     @include break_min(medscreen)
         max-width: map-get($breakpoints, medscreen)
         margin: 0 auto
-        .contents
-            margin-left: map-get($dimensions, text_margin)
