@@ -2,26 +2,22 @@
 @import "text"
 @import "timetable"
 
+#mainSection
+    padding-top: map-get($dimensions, banner_height) + 1.5rem
+    padding-bottom: 0.5rem
+    width: 100%
+
 #mainSection .Container
     display: flex
     @include break_min(portable)
         flex-direction: row
         align-items: flex-start
+        .contents
+            margin-left: map-get($dimensions, text_margin)
     @include break_max(portable)
         flex-direction: column
 
 #mainSection
-    padding-bottom: 0.5rem
-    width: 100%
-
-    @include break_max(portable)
-        padding-top: map-get($dimensions, banner_height) + 0.5rem
-
-    @include break_min(portable)
-        padding-top: map-get($dimensions, banner_height) + 1.5rem
-        .contents
-            margin-left: map-get($dimensions, text_margin)
-
     @include break_min(medscreen)
         max-width: map-get($breakpoints, medscreen)
         margin: 0 auto
