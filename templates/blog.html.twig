@@ -9,7 +9,9 @@
 
 
 {% block sideFilters %}
+{% if header.blog.filt.enable %}
 <nav class = "RequireJS SideNav" require-js>
   {% include "filter/taxonomy_switches.html.twig" %}
 </nav>
+{% endif %}
 {% endblock %}

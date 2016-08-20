@@ -1,13 +1,22 @@
 <!DOCTYPE html>
+{% import 'macros/utils.html.twig' as utils %}
+{% import 'macros/css_tools.html.twig' as css %}
 {% set lang = grav.language.getActive ?: theme_config.default_lang %}
 <html
   lang="{{ lang }}"
   ng-app="Mona">
   <head>
     {% block stylesheets %}
-    {% do assets.addCss('theme://css-compiled/mona.css') %}
+      {% do assets.addCss('theme://css-compiled/mona.css') %}
     {% endblock %}
-    {% block stylesheets_inline %} {% endblock %}
+    {% block stylesheets_inline %}
+      {% set css_inline %}
+        {% if not header.sidenav.enable %}
+          {{css.disable_sidenav}}
+        {% endif %}
+      {% endset %}
+      {% do assets.addInlineCss(css_inline) %}
+    {% endblock %}
     {% block javascript %}
     {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js') %}
     {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.js') %}
@@ -33,16 +42,18 @@
       <section
         id="mainSection"
         ng-controller="taxonomy" >
-        {% if config.plugins.breadcrumbs.enabled %}
+        {% if config.plugins.breadcrumbs.enabled and header.breadcrumbs.enable %}
         {% include 'partials/breadcrumbs.html.twig' %}
         {% endif %}
         <div class="Container">
+          {% if header.sidenav.enable %}
           <aside id="sideNavigation" ng-controller="sidebarCtrl">
-          {% block sidenav %}
-            {% include 'partials/navigation/side_nav.html.twig' %}
-            {% block sideFilters %} {% endblock %}
-          {% endblock %}
+            {% block sidenav %}
+              {% include 'partials/navigation/side_nav.html.twig' %}
+              {% block sideFilters %} {% endblock %}
+            {% endblock %}
           </aside>
+          {% endif %}
           <div class="contents" lang="{{lang}}">
             <header>
               {% block header %}

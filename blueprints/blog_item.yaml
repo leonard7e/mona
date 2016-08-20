@@ -1,16 +1,22 @@
 title: Blog Item
-'@extends': default
+'@extends':
+  type: default
+  context: blueprints://.
 
 form:
   fields:
     tabs:
       type: tabs
       active: 1
-
       fields:
-        tab_blogitem:
+        mona:
           type: tab
-          title: Blog Item
+          title: Mona
           fields:
-            header.blogitem:
-              label: TODO
+            blogitem:
+              type: section
+              title: Blog Item
+              underline: true
+              fields:
+                header.blogitem:
+                  label: TODO

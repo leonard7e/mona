@@ -1,5 +1,7 @@
 title: Timetable
-'@extends': default
+'@extends':
+  type: default
+  context: blueprints://.
 
 child_type: event_item
 
@@ -8,11 +10,15 @@ form:
     tabs:
       type: tabs
       active: 1
-
       fields:
-        tab_timetable:
+        mona:
           type: tab
-          title: Timetable
+          title: Mona
           fields:
-            header.timetbl:
-              label: TODO
+            timetbl:
+              type: section
+              title: Time Table
+              underline: true
+              fields:
+                header.timetbl:
+                  label: TODO

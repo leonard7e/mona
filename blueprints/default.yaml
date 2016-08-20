@@ -1,0 +1,39 @@
+title: Default
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        mona:
+          type: tab
+          title: Mona
+          fields:
+            navigation:
+              type: section
+              title: Navigation
+              underline: true
+              fields:
+                header.sidenav.enable:
+                  type: toggle
+                  label: Side Navigation
+                  options:
+                    1: PLUGIN_ADMIN.ENABLED
+                    0: PLUGIN_ADMIN.DISABLED
+                  highlight: 1
+                  default: 1
+                  validate:
+                    type: bool
+                header.breadcrumbs.enable:
+                  type: toggle
+                  label: Breadcrumbs
+                  options:
+                    1: PLUGIN_ADMIN.ENABLED
+                    0: PLUGIN_ADMIN.DISABLED
+                  highlight: 1
+                  default: 1
+                  validate:
+                    type: bool

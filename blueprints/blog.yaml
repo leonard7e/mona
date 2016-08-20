@@ -1,5 +1,7 @@
 title: Blog
-'@extends': default
+'@extends':
+  type: default
+  context: blueprints://.
 
 child_type: blog_item
 
@@ -10,10 +12,22 @@ form:
       active: 1
 
       fields:
-        tab_blog:
+        mona:
           type: tab
-          title: Blog
+          title: Mona
           fields:
-            header.blog.filt.enable:
-              type: checkbox
-              label: Enable taxonomy filtering
+            blog:
+              type: section
+              title: Blog
+              underline: true
+              fields:
+                header.blog.filt.enable:
+                  type: toggle
+                  label: Enable taxonomy filtering
+                  options:
+                    1: PLUGIN_ADMIN.ENABLED
+                    0: PLUGIN_ADMIN.DISABLED
+                  highlight: 1
+                  default: 1
+                  validate:
+                    type: bool

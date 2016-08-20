@@ -1,0 +1,5 @@
+{% macro breadcrumbs () %}
+{% if config.plugins.breadcrumbs.enabled and header.breadcrumbs.enable %}
+{% include 'partials/breadcrumbs.html.twig' %}
+{% endif %}
+{% endmacro %}
