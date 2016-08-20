@@ -1,7 +1,11 @@
 {% extends 'partials/base.html.twig' %}
+{% import 'macros/css_tools.html.twig' as css %}
 
-{% block stylesheets %}
-{% do assets.addCss('theme://css-compiled/mona-section.css') %}
+{% block stylesheets_inline %}
+{% set css_inline %}
+{{css.disable_sidenav}}
+{% endset %}
+{% do assets.addInlineCss(css_inline) %}
 {% endblock %}
 
 {% block content %}

@@ -7,7 +7,7 @@
     {% block stylesheets %}
     {% do assets.addCss('theme://css-compiled/mona-default.css') %}
     {% endblock %}
-    {{ assets.css() }}
+    {% block stylesheets_inline %} {% endblock %}
     {% block javascript %}
     {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js') %}
     {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.js') %}
@@ -17,6 +17,8 @@
     {% do assets.addJs('theme://js/directives/navItem.js', {'group':'MonaAngular'}) %}
     {% do assets.addJs('theme://js/directives/requireJs.js', {'group':'MonaAngular'}) %}
     {% endblock %}
+    {{ assets.css() }}
+    {{ assets.inline_css() }}
     {{ assets.js() }}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
