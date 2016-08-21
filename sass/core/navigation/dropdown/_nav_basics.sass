@@ -5,12 +5,15 @@
 #mainNavigation li.Active > nav
     display: block
 
+#mainNavigation nav ul
+    padding: 1ex 0
 // Placement of menu items
 @include break_min(portable)
     #mainNavigation li.toplevel-menu
         display: inline-block
 
     #mainNavigation li.toplevel-menu nav
+        margin-top:  0.1rem
         position: absolute
 
     #mainNavigation li:hover > nav

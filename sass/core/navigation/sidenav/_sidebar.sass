@@ -1,8 +1,4 @@
 
-#sideNavigation .navItem,
-#sideNavigation .navCurrent,
-    padding: 0
-
 #sideNavigation h2
     line-height: 1.6rem
 
@@ -18,12 +14,11 @@
     border-color: transparentize(map-get($uiColors, menu), 0.75)
     border-radius: 2rem
     .SideNav
-        margin: 1rem
+        margin: 0.5rem
+    .navItem, .navCurrent,
+    h2
+        padding: 0 0.5rem
 
 @include break_min(portable)
     #sideNavigation
         flex: 0 0 map-get($dimensions, sidenav_width)
-
-@include break_max(portable)
-    #sideNavigation .SideNav:first-of-type
-        display: none
