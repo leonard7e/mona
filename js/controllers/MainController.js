@@ -59,8 +59,12 @@ app.controller('Banner', function ($scope) {
 app.controller('DropdownNav', function ($scope) {
   $scope.activeMenu = -1;
 
-  $scope.doActivate = function($event,menuid) {
-    $scope.activeMenu = menuid;
+  $scope.doNavSwitch = function($event,menuid) {
+    if( $scope.activeMenu === menuid ) {
+      $scope.activeMenu = -1;
+    } else {
+      $scope.activeMenu = menuid;
+    }
     $event.stopPropagation();
   };
 

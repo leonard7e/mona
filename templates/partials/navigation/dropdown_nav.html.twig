@@ -57,7 +57,7 @@ role="navigation"
 {% macro nav_not_routable(p, dropdownid) %}
 <span
 class="navItem"
-ng-click="doActivate($event,{{dropdownid}})"
+ng-click="doNavSwitch($event,{{dropdownid}})"
 role="menuitem"
 aria-haspopup="true"
 tabindex="0"
@@ -71,7 +71,7 @@ tabindex="0"
   <a
   class="navItem"
   href="{{ p.url }}"
-  ng-click="doActivate($event,{{dropdownid}})"
+  ng-click="doNavSwitch($event,{{dropdownid}})"
   role="menuitem"
   tabindex="0"
   >
