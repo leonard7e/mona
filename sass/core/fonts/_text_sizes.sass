@@ -1,5 +1,14 @@
-#mainHeader > .header
-    font-size: 1.6rem
+#mainHeader
+    font-weight: bold
+    @include break_min(portable)
+        .header
+            font-size: 1.6rem
+            white-space: nowrap
+    @include break_max(portable)
+        .header
+            font-size: calc(3vw)
+            font-size-adjust: auto
+            white-space: nowrap
 
 #mainNavigation
     font-size: 1rem

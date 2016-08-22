@@ -8,13 +8,7 @@
     display: flex
     text-align: center
     padding: 0 1rem
+    height: 100%
     flex-direction: row
     justify-content: space-around
-    img
-        width: 100%
-
-@include break_min(portable)
-    #mainHeader
-        .header
-            img
-                width: map-get($breakpoints, portable)
+    align-items: center
