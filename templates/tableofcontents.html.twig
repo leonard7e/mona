@@ -7,7 +7,7 @@
     <h3 class="tocSection"> {{section.title}} </h3>
     <ul>
       {% for p in section.children.visible %}
-      <li> <a class="navItem" href="{{p.url}}">{{p.title}}</a></li>
+      <li> <a class="navItem" href="{{p.url}}" tabindex="0">{{p.title}}</a></li>
       {% endfor %}
     </ul>
   </div>
