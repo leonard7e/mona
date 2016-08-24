@@ -1,0 +1,14 @@
+// Text Shadows
+#mainFooter,
+.contents > header > h1 {
+  text-shadow:
+  0.075ex 0.075ex 0.1ex transparentize(black, 0.4);
+}
+
+#mainHeader .header {
+  color: transparentize(map-get($textColors,sitetitle),0.8);
+  text-shadow:
+  0 0 map-get($textColors,sitetitle),
+  -0.03ex -0.03ex 0.08ex transparentize(black, 0.5),
+  0.03ex 0.03ex 0.08ex transparentize(white, 0.5);
+}

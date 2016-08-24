@@ -4,6 +4,7 @@
 // @import "dropdown"
 
 
+
 @include break_max(portable)
     #mainNavigation
         text-align: left
@@ -13,10 +14,10 @@
 @include break_min(portable)
     #mainNavigation
         text-align: center
-        margin-bottom: 0.1rem
-
-    #mainNavigation li
-        text-align: left
+        li
+            text-align: left
+        .toplevel-menu
+            padding-bottom: 0.2rem
 
     #mainNavigation
         white-space: nowrap
