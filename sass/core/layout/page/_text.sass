@@ -1,5 +1,13 @@
 #mainSection .Container
-    margin: map-get($dimensions, text_margin)
+    margin: 2rem map-get($dimensions, text_margin)
+    display: flex
+    @include break_min(portable)
+        flex-direction: row
+        align-items: flex-start
+        .contents
+            margin-left: map-get($dimensions, text_margin)
+    @include break_max(portable)
+        flex-direction: column
 
 #mainSection .contents header h1
     margin-top: 0

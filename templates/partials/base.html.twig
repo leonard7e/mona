@@ -44,10 +44,10 @@
         ng-controller="taxonomy" >
         {% if config.plugins.breadcrumbs.enabled and header.breadcrumbs.enable %}
         {% include 'partials/breadcrumbs.html.twig' %}
+        <div class="Container BreadcrumbsEnabled">
         {% else %}
-          <div class="Strut"> </div>
-        {% endif %}
         <div class="Container">
+        {% endif %}
           {% if header.sidenav.enable %}
           <aside id="sideNavigation" ng-controller="sidebarCtrl">
             {% block sidenav %}

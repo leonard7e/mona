@@ -7,16 +7,6 @@
     padding-bottom: 0.5rem
     width: 100%
 
-#mainSection .Container
-    display: flex
-    @include break_min(portable)
-        flex-direction: row
-        align-items: flex-start
-        .contents
-            margin-left: map-get($dimensions, text_margin)
-    @include break_max(portable)
-        flex-direction: column
-
 #mainSection
     @include break_min(medscreen)
         max-width: map-get($breakpoints, medscreen)
