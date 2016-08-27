@@ -1,12 +1,14 @@
 #breadcrumbs i::before
-    content: "•"
+    content: ">"
+    position: relative
+    bottom: 0.2ex
     font-style: normal
 
 #breadcrumbs
     margin: 1rem map-get($dimensions, text_margin)
-
-#mainSection .Container.BreadcrumbsEnabled
-    margin-top: 1rem
+@include break_min(portable)
+    #mainSection .Container.BreadcrumbsEnabled
+        margin-top: 1rem
 
 @include break_max(portable)
     #breadcrumbs

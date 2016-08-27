@@ -3,11 +3,14 @@
 @import "timetable"
 
 #mainSection
-    padding-top: map-get($dimensions, banner_height) + 1.5rem
     padding-bottom: 0.5rem
     width: 100%
+    @include break_max (portable)
+        padding-top: map-get($dimensions, banner_height)
 
-#mainSection
+    @include break_min (portable)
+        padding-top: map-get($dimensions, banner_height) + 1.5rem
+
     @include break_min(medscreen)
         max-width: map-get($breakpoints, medscreen)
         margin: 0 auto

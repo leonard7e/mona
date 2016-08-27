@@ -19,6 +19,10 @@
     h2
         padding: 0 0.5rem
 
+@include break_max(portable)
+    #sideNavigation
+        margin-top: 1rem
+
 @include break_min(portable)
     #sideNavigation
         flex: 0 0 map-get($dimensions, sidenav_width)
