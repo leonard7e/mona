@@ -9,6 +9,19 @@ form:
       type: tabs
       active: 1
       fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            blogitem:
+              type: section
+              title: Blog Item
+              underline: true
+            header.blogitem.summary:
+              type: markdown
+              label: Write Summary here
+              validate:
+                type: textarea
         mona:
           type: tab
           title: Mona

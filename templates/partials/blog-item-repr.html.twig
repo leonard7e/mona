@@ -5,12 +5,26 @@
   ng-init='taxInit({{tax}})'
   >
   <header>
-    <h3> <a href="{{page.url}}" tabindex="0">
-      {{page.title}}
-    </a>
-  </h3>
+      {% if header.blog.usesummary %}
+      <h3>
+        <a href="{{page.url}}" tabindex="0">
+          {{page.title}}
+        </a>
+      </h3>
+      <p>
+        {% if page.header.blogitem.summary %}
+          {{ page.header.blogitem.summary }}
+        {% else %}
+          {{ page.summary }}
+        {% endif %}
+      </p>
+      {% else %}
+      <h3>
+        {{page.title}}
+      </h3>
+      <p>
+        {{ page.content }}
+      </p>
+      {% endif %}
   </header>
-  <p>
-    {{ page.summary }}
-  </p>
 </div>
