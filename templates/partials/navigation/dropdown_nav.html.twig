@@ -19,9 +19,12 @@ role="navigation"
 
 {% macro dropdown_items(p, depth, dropdownId) %}
 {% import _self as nv %}
+{% if depth == 0 %}
 <li class="{{ nv.menu_type(depth) }}"
-  ng-class="{Active:isActive({{dropdownId}})}"
-  >
+ng-class="{Active:isActive({{dropdownId}})}" >
+{% else %}
+<li class="{{ nv.menu_type(depth) }}">
+{% endif %}
   {% if depth >= 1 %}
     {{ nv.nav_item(p, dropdownId) }}
     {# {% if p.children ..... %}{% endif %} #}
@@ -83,13 +86,5 @@ tabindex="0"
 {% endmacro %}
 
 {% macro menu_type(depth) %}
-{% if depth == 0 %}
-toplevel-menu
-{% elseif depth == 1 %}
-menu
-{% elseif depth == 2 %}
-submenu
-{% else %}
-subsubmenu
-{% endif %}
+{% if depth == 0 %}toplevel-menu{% elseif depth == 1 %}menu{% elseif depth == 2 %}submenu{% else %}subsubmenu{% endif %}
 {% endmacro %}
