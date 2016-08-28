@@ -1,6 +1,5 @@
 // Text Shadows
-#mainFooter,
-.contents > header > h1 {
+#mainFooter {
   text-shadow:
   0.075ex 0.075ex 0.1ex transparentize(black, 0.4);
 }

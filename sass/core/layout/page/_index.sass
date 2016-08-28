@@ -3,6 +3,11 @@
 @import "timetable"
 
 #mainSection
+    background-color: map-get($uiColors,main)
+    .contents
+        background-color: map-get($uiColors,textarea)
+
+#mainSection
     padding-bottom: 0.5rem
     width: 100%
     @include break_max (portable)

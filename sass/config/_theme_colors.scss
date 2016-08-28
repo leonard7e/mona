@@ -1,14 +1,15 @@
 $uiColors: (
-  menu:         hsl( 40,  20%, 50% ),
+  menu:         hsl(34, 100%, 50%),
   backspace:    hsl( 220, 20%, 40% ),
   textarea:     hsl( 40,  30%, 90% ),
+  main:         hsl( 40,  30%, 90% ),
   );
 
 $textColors: (
   footer:       hsl( 40,  20%, 90% ),
   navitem:      hsl( 220, 50%, 25% ),
-  navpos:       hsl( 220, 20%, 40% ),
+  navpos:       hsl(220, 35%, 55%),
   sitetitle:    hsl( 220, 20%, 50% ),
-  articletitle: hsl( 40,  20%, 50% ),
+  articletitle: hsl(220, 35%, 55%),
   article:      hsl( 220, 20%, 10% ),
   );
