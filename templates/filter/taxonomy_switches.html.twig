@@ -22,9 +22,15 @@
 {% endfor %}
 
 <div class="Taxonomy Switches" >
-{{ utils.tax_switches ("town", 0, "Stadt wählen", towns)}}
-{{ utils.tax_switches ('category', 1, 'Kategorien', categories)}}
-{{ utils.tax_switches ("tag", 2, "Schlagworte", tags)}}
+{% if header.blog.filt.town %}
+  {{ utils.tax_switches ("town", 0, "Stadt wählen", towns)}}
+{% endif %}
+{% if header.blog.filt.category %}
+  {{ utils.tax_switches ('category', 1, 'Kategorien', categories)}}
+{% endif %}
+{% if header.blog.filt.tag %}
+  {{ utils.tax_switches ("tag", 2, "Schlagworte", tags)}}
+{% endif %}
 {#
 #}
 </div>
