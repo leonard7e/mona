@@ -1,6 +1,14 @@
-{% set tags = [] %}
+{% import 'macros/utils.html.twig' as utils %}
+
+{% set towns = [] %}
 {% set categories = [] %}
+{% set tags = [] %}
 {% for m in page.collection %}
+  {% for tw in m.taxonomy.town %}
+    {% if tw not in towns %}
+      {% set towns = towns | merge([tw]) %}
+    {% endif %}
+  {% endfor %}
   {% for t in m.taxonomy.tag %}
     {% if t not in tags %}
       {% set tags = tags | merge([t]) %}
@@ -12,53 +20,11 @@
     {% endif %}
   {% endfor %}
 {% endfor %}
+
 <div class="Taxonomy Switches" >
-  <div ng-init="filterInit(0)">
-    <h4 ng-click="filterSwitch(0)" ng-class="{Active: filterIsActive(0)}">
-      Filtriere Kategorien
-       <span class="toExpand"></span>
-     </h4>
-    <div class="CategoryList">
-      {% for c in categories %}
-        <span
-          class="Category"
-          tabindex="0"
-          ng-class='
-            {
-              Active: taxSwitchActive("category",{
-                "category": ["{{c}}"],
-                "tag": []
-              }),
-              Hide: taxHideCategorySwitch("{{c}}")
-            }'
-            ng-click='taxDoSwitch("category","{{c}}")'
-            > {{ c }}
-        </span>
-      {% endfor %}
-    </div>
-  </div>
-  <div ng-init="filterInit(1)">
-    <h4 ng-click="filterSwitch(1)" ng-class="{Active: filterIsActive(1)}">
-      Filtriere Schlagworte
-       <span class="toExpand"></span>
-     </h4>
-    <div class="TagList">
-      {% for t in tags %}
-        <span class="Tag"
-          tabindex="0"
-          ng-class='
-            {
-              Active: taxSwitchActive("tag",{
-                tag: ["{{t}}"],
-                category:[]
-              }),
-              Hide: taxHideTagSwitch("{{t}}")
-            }'
-          ng-click='taxDoSwitch("tag","{{t}}")'
-          >
-        {{ t }}
-      </span>
-      {% endfor %}
-    </div>
-  </div>
+{{ utils.tax_switches ("town", 0, "Stadt wählen", towns)}}
+{{ utils.tax_switches ('category', 1, 'Kategorien', categories)}}
+{{ utils.tax_switches ("tag", 2, "Schlagworte", tags)}}
+{#
+#}
 </div>

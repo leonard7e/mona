@@ -11,14 +11,18 @@
 {{ page.content }}
 <footer>
   <div class="Taxonomy RequireJS" require-js>
-    <div>
-      <h4>Kategorien</h4>
-      {% include 'filter/categories.html.twig' %}
-    </div>
-    <div>
-      <h4>Schlagworte</h4>
-      {% include 'filter/tags.html.twig' %}
-    </div>
+    {{ utils.tax_item(
+      'town',
+      'Stadt',
+      page.taxonomy.town) }}
+    {{ utils.tax_item(
+      'category',
+      'Kategorien',
+      page.taxonomy.category) }}
+    {{ utils.tax_item(
+      'tag',
+      'Schlagworte',
+      page.taxonomy.tag) }}
   </div>
 </footer>
 {% endblock %}

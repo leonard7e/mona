@@ -3,3 +3,57 @@
 {% include 'partials/breadcrumbs.html.twig' %}
 {% endif %}
 {% endmacro %}
+
+{% macro tax_switches (taxtype, id, description, taxlist) %}
+<div ng-init="filterInit({{id}})">
+  <h4 ng-click="filterSwitch({{id}})" ng-class="{Active: filterIsActive({{id}})}">
+    {{description}}
+     <span class="toExpand"></span>
+   </h4>
+  <div class="{{taxtype | capitalize}}List">
+    {% for t in taxlist %}
+      {% set tax_classes %}
+      {
+        Active: taxSwitchActive("{{taxtype}}",
+        {
+          {% if taxtype == "town" %}
+            "town": ["{{t}}"],
+            "category": [],
+            "tag": [],
+          {% endif %}
+          {% if taxtype == "category" %}
+            "town": [],
+            "category": ["{{t}}"],
+            "tag": [],
+          {% endif %}
+          {% if taxtype == "tag" %}
+            "town": [],
+            "category": [],
+            "tag": ["{{t}}"],
+          {% endif %}
+        }),
+        Hide: taxHide{{taxtype | capitalize}}Switch("{{t}}")
+      }
+      {% endset %}
+      <span
+        class="{{taxtype | capitalize}}"
+        tabindex="0"
+        ng-class='{{tax_classes}}'
+          ng-click='taxDoSwitch("{{taxtype}}","{{t}}")'
+          > {{ t }}
+      </span>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro tax_item (taxtype, description, taxlist) %}
+<div>
+  <h4>{{description}}</h4>
+<div class="{{taxtype | capitalize}}List">
+  {% for t in taxlist %}
+    <span class="{{taxtype | capitalize}}"> {{ t }} </span>
+  {% endfor %}
+</div>
+</div>
+{% endmacro %}
