@@ -17,7 +17,7 @@ form:
               title: Navigation
               underline: true
               fields:
-                header.sidenav.enable:
+                header.sidebar.enabled:
                   type: toggle
                   label: Side Navigation
                   options:
@@ -27,7 +27,7 @@ form:
                   default: 1
                   validate:
                     type: bool
-                header.breadcrumbs.enable:
+                header.breadcrumbs.enabled:
                   type: toggle
                   label: Breadcrumbs
                   options:

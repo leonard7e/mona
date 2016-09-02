@@ -42,18 +42,20 @@
       <section
         id="mainSection"
         ng-controller="taxonomy" >
-        {% if config.plugins.breadcrumbs.enabled and header.breadcrumbs.enable %}
+        {% if config.plugins.breadcrumbs.enabled and header.breadcrumbs.enabled %}
         {% include 'partials/breadcrumbs.html.twig' %}
         <div class="Container BreadcrumbsEnabled">
         {% else %}
         <div class="Container">
         {% endif %}
-          {% if header.sidenav.enable %}
+          {% if header.sidebar.enabled %}
           <aside id="sideNavigation" ng-controller="sidebarCtrl">
+            {% if header.sidenav.enabled %}
             {% block sidenav %}
               {% include 'partials/navigation/side_nav.html.twig' %}
-              {% block sideFilters %} {% endblock %}
             {% endblock %}
+            {% endif %}
+            {% block sideFilters %} {% endblock %}
           </aside>
           {% endif %}
           <div class="contents" lang="{{lang}}">
