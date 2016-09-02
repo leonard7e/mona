@@ -138,6 +138,14 @@ app.controller('taxonomy', function($scope){
 
     switch_tax(name,value);
   };
+
+  $scope.filterUsed = function (name) {
+    return $scope.taxSelect[name].length > 0;
+  };
+
+  $scope.filterReset = function (name) {
+    $scope.taxSelect[name] = [];
+  };
 });
 
 
@@ -155,7 +163,7 @@ app.controller('sidebarCtrl', function ($scope) {
       $scope.filterActive.push(idx);
     }
   };
-  $scope.filterIsActive = function (idx) {
+  $scope.filterPoppedUp = function (idx) {
     return ($scope.filterActive.indexOf(idx) === -1);
   };
 });

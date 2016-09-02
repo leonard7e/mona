@@ -6,7 +6,7 @@
 
 {% macro tax_switches (taxtype, id, description, taxlist) %}
 <div ng-init="filterInit({{id}})">
-  <h4 ng-click="filterSwitch({{id}})" ng-class="{Active: filterIsActive({{id}})}">
+  <h4 ng-click="filterSwitch({{id}})" ng-class="{Active: filterPoppedUp({{id}})}">
     {{description}}
      <span class="toExpand"></span>
    </h4>

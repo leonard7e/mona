@@ -1,6 +1,26 @@
-.SideNav .Taxonomy .Active
+.SideNav h4
+    margin-bottom: 0.5ex
+
+
+.SideNav .Taxonomy h4 + div .Active,
+.SideNav .Taxonomy h4.Active .FilterExpander
     background-color: transparentize(map-get($uiColors, menu), 0.75)
     border-radius: 1rem
+
+#sideNavigation .SideNav .Switches h4 .FilterExpander,
+#sideNavigation .SideNav .Switches h4
+    display: flex
+    flex-direction: row
+    align-content: space-between
+
+#sideNavigation .SideNav .Switches h4 .toExpand,
+#sideNavigation .SideNav .Switches h4 .resetFilter
+    width: auto
+
+#sideNavigation .SideNav .Switches h4 .FilterExpander,
+#sideNavigation .SideNav .Switches h4 .toExpand
+    margin-right: 1ex
+
 
 #sideNavigation .SideNav .Switches h4 .toExpand::after
     content: "+"
@@ -8,12 +28,16 @@
 #sideNavigation .SideNav .Switches h4.Active .toExpand::after
     content: "-"
 
+#sideNavigation .SideNav .Switches h4 .resetFilter.Active::after
+    content: "⭙"
+    color: transparentize(map-get($uiColors, menu), 0.5)
+
+
 .SideNav .Town,
 .SideNav .Category,
 .SideNav .Tag,
-.SideNav h4
-    line-height: 1.6em
-    margin-bottom: 0.5rem
+.SideNav h4 .FilterExpander
+    line-height: 1.6rem
     padding: 0 0.5rem
 
 .SideNav .Taxonomy .Town,
