@@ -1,0 +1,25 @@
+#mainSection
+    @include break_max (portable)
+        img, img.floatleft, img.floatright
+            float: none
+            display: block
+            margin: 0 auto
+
+    @include break_min (portable)
+        img, img.floatleft
+            float: left
+            margin-left: 0
+            margin-right: 2rem
+
+        img.floatright
+            float: right
+            margin-left: 2rem
+            margin-right: 0
+
+        img.floatright,
+        img.floatleft
+            max-width: 50%
+
+        img.fill
+            width: 100%
+            margin: 0
