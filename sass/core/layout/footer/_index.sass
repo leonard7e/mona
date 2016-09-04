@@ -1,12 +1,16 @@
-#mainFooter 
+#mainFooter
     margin-top: 0.5rem
+    @include break_min(medscreen)
+        max-width: map-get($breakpoints, medscreen)
+        margin: 0 auto
 
-#mainFooter nav
+#mainFooter nav ul
     display: flex
     flex-direction: row
-    justify-content: flex-end
+    justify-content: center
 
-#mainFooter ul
-    padding: 0
-    margin: 0 auto
-    
+#mainFooter li
+    margin: 0 1rem
+// #mainFooter ul
+//     padding: 0
+//     margin: 0 auto
