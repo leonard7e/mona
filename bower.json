@@ -20,6 +20,9 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "angularjs#^1.5.8"
+    "angular": "angularjs#^1.5.8",
+    "angular-aria": "^1.5.8",
+    "openSans": "https://google-fonts.azurewebsites.net/googleFonts/openSans?family=Open+Sans:400,400italic,700,700italic",
+    "oswald": "https://google-fonts.azurewebsites.net/googleFonts/Oswald?family=Oswald"
   }
 }
