@@ -9,3 +9,11 @@
     @include break_min(medscreen)
         max-width: map-get($breakpoints, medscreen)
         left: calc(50% - #{map-get($breakpoints, medscreen) / 2})
+
+#mainHeader
+    .header
+        img
+            @include break_max(portable)
+                width: 100%
+            @include break_min(portable)
+                width: map-get($breakpoints, portable)
