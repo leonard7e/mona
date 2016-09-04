@@ -1,0 +1,25 @@
+{
+  "name": "mona",
+  "authors": [
+    "Leonard Siebeneicher <leonard7e@googlemail.com>"
+  ],
+  "description": "This is a theme, usable in Grav CMS",
+  "main": "",
+  "keywords": [
+    "Grav",
+    "theme"
+  ],
+  "license": "LGPL",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.8"
+  }
+}

@@ -1,5 +1,7 @@
 # Git Ignore File
 
+node_modules
+bower_components
 css-compiled
 .sass-cache
 .DS_Store
