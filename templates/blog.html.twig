@@ -2,7 +2,7 @@
 
 {% block content %}
 {{ page.content }}
-{% for item in page.collection() %}
+{% for item in page.collection().visible() %}
 {% include 'partials/blog-item-repr.html.twig' with {page: item} %}
 {% endfor %}
 {% endblock %}
