@@ -53,7 +53,7 @@
           class="Container"
           {% endif %}
           >
-          {% if header.sidebar.enabled %}
+          {% if header.sidebar.enabled and not page.home() %}
           <aside id="sideNavigation" ng-controller="sidebarCtrl">
             {% if header.sidenav.enabled or (page.template in ['default','timetable'] )%}
             {% block sidenav %}
