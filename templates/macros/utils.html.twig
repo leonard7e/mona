@@ -1,9 +1,3 @@
-{% macro breadcrumbs () %}
-{% if config.plugins.breadcrumbs.enabled and header.breadcrumbs.enable %}
-{% include 'partials/breadcrumbs.html.twig' %}
-{% endif %}
-{% endmacro %}
-
 {% macro tax_switches (taxtype, id, description, taxlist) %}
 <div ng-init="filterInit({{id}})">
   <h4 class="FilterHeader" ng-class="{Active: filterPoppedUp({{id}})}">

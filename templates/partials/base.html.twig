@@ -11,7 +11,7 @@
     {% endblock %}
     {% block stylesheets_inline %}
       {% set css_inline %}
-        {% if not header.sidenav.enable %}
+        {% if not header.sidenav.enabled %}
           {{css.disable_sidenav}}
         {% endif %}
       {% endset %}
@@ -42,12 +42,17 @@
       <section
         id="mainSection"
         ng-controller="taxonomy" >
-        {% if config.plugins.breadcrumbs.enabled and header.breadcrumbs.enabled %}
+        {% set bcrumbs = config.plugins.breadcrumbs.enabled and header.breadcrumbs.enabled %}
+        {% if bcrumbs %}
         {% include 'partials/breadcrumbs.html.twig' %}
-        <div class="Container BreadcrumbsEnabled">
-        {% else %}
-        <div class="Container">
         {% endif %}
+        <div
+          {% if bcrumbs %}
+          class="Container BreadcrumbsEnabled"
+          {% else %}
+          class="Container"
+          {% endif %}
+          >
           {% if header.sidebar.enabled %}
           <aside id="sideNavigation" ng-controller="sidebarCtrl">
             {% if header.sidenav.enabled %}
