@@ -1,24 +1,23 @@
 {% extends 'partials/base.html.twig' %}
 
-{% block stylesheets_inline %}
-{% set css_inline %}
-{{css.disable_sidenav}}
-{% endset %}
-{% do assets.addInlineCss(css_inline) %}
-{% endblock %}
-
 {% block content %}
-<div class="Event">
-  <div>
-    {{ page.header.town }}. <br/>
-    {{ page.header.adress }}
-  </div>
-  <div>
-    {{ page.header.date | date ("d. m. Y") }} um
-    {{ page.header.date | date ("H:i") }} Uhr.
-  </div>
-</div>
 {{ page.content }}
 {% endblock %}
 
-{% block sidenav %} {% endblock %}
+{% block sidebarCustom %}
+<div class="SideNav">
+  <div class="Event">
+    <div>
+      {{ page.header.adress | markdown }}
+    </div>
+  </div>
+  <div class="Event">
+    <div>
+      {{ page.header.date | date ("d. m. Y") }} um
+      {{ page.header.date | date ("H:i") }} Uhr
+      ({{ page.taxonomy.town[0] }}).
+    </div>
+  </div>
+
+</div>
+{% endblock %}

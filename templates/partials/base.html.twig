@@ -55,13 +55,13 @@
           >
           {% if header.sidebar.enabled %}
           <aside id="sideNavigation" ng-controller="sidebarCtrl">
-            <h2>{{ page.parent.title() }}</h2>
-            {% if header.sidenav.enabled %}
+            {% if header.sidenav.enabled or (page.template in ['default','timetable'] )%}
             {% block sidenav %}
+              <h2>{{ page.parent.title() }}</h2>
               {% include 'partials/navigation/side_nav.html.twig' %}
             {% endblock %}
             {% endif %}
-            {% block sideFilters %} {% endblock %}
+            {% block sidebarCustom %} {% endblock %}
           </aside>
           {% endif %}
           <div class="contents" lang="{{lang}}">

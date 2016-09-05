@@ -26,5 +26,5 @@ form:
                   type: text
                   label: Town
                 header.adress:
-                  type: textarea
+                  type: markdown
                   label: Adress
