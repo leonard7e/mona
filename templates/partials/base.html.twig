@@ -11,7 +11,7 @@
     {% endblock %}
     {% block stylesheets_inline %}
       {% set css_inline %}
-        {% if not header.sidenav.enabled %}
+        {% if not header.sidebar.enabled %}
           {{css.disable_sidenav}}
         {% endif %}
       {% endset %}
@@ -55,6 +55,7 @@
           >
           {% if header.sidebar.enabled %}
           <aside id="sideNavigation" ng-controller="sidebarCtrl">
+            <h2>{{ page.parent.title() }}</h2>
             {% if header.sidenav.enabled %}
             {% block sidenav %}
               {% include 'partials/navigation/side_nav.html.twig' %}

@@ -1,4 +1,3 @@
 <nav class = "SideNav" role="complementary">
-  <h2>{{ page.parent.title() }}</h2>
   {% include 'partials/navigation/sidenav_create.html.twig' with {'current':page.parent, 'childs':page.parent.children.visible} %}
 </nav>
