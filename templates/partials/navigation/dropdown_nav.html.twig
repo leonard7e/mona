@@ -8,8 +8,12 @@ role="navigation"
 >
   <ul>
     {% for p in pg.children.visible %}
-    {# Generate a dropdown identity. #}
+    {% if p.routable()  %}
+    <li class="{{nv.menu_type(0)}}">
+    {{ nv.nav_item(p) }} </li>
+    {% else %}
     {{ nv.dropdown_items(p, 0, loop.index) }}
+    {% endif %}
     {% endfor %}
   </ul>
 </nav>
@@ -26,11 +30,14 @@ ng-class="{Active:isActive({{dropdownId}})}" >
 <li class="{{ nv.menu_type(depth) }}">
 {% endif %}
   {% if depth >= 1 %}
-    {{ nv.nav_item(p, dropdownId) }}
-    {# {% if p.children ..... %}{% endif %} #}
+    {{ nv.nav_item(p) }}
   {% else %}
-    {{ nv.nav_not_routable(p, dropdownId) }}
+    {% if p.routable() %}
+    {{ nv.nav_item(p) }}
+    {% else %}
+    {{ nv.nav_folder(p, dropdownId) }}
     {{ nv.nav_recursion (p, depth, dropdownId )}}
+    {% endif %}
   {% endif %}
 </li>
 {% endmacro %}
@@ -57,7 +64,7 @@ ng-class="{Active:isActive({{dropdownId}})}" >
 {% endif %}
 {% endmacro %}
 
-{% macro nav_not_routable(p, dropdownid) %}
+{% macro nav_folder(p, dropdownid) %}
 <span
 class="navItem"
 ng-click="doNavSwitch($event,{{dropdownid}})"
@@ -69,20 +76,15 @@ tabindex="0"
 </span>
 {% endmacro %}
 
-{% macro nav_item(p, dropdownid) %}
-{% if p.routable %}
+{% macro nav_item(p) %}
   <a
   class="navItem"
   href="{{ p.url }}"
-  ng-click="doNavSwitch($event,{{dropdownid}})"
   role="menuitem"
   tabindex="0"
   >
   {{ p.menu() }}
   </a>
-{% else %}
-  {{ nv.nav_not_routable(p,dropdownid)}}
-{% endif %}
 {% endmacro %}
 
 {% macro menu_type(depth) %}
