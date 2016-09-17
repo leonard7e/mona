@@ -4,7 +4,6 @@ app.directive('requireJs', function() {
     'restrict': 'A',
     link: function($scope, $element, $attributes) {
       $element.removeClass("RequireJS");
-      console.log("->");
     }
   };
 });
