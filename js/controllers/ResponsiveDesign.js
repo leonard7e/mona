@@ -14,7 +14,9 @@ app.controller('responsiveDesign', function($scope, $window, $rootScope) {
 
   var query_media_breakpoints = function () {
     var wdt = $window['innerWidth'];
-    if (wdt <= 700) {
+    if (wdt == null) {
+      window.alert("Window inner Width not defined");
+    } else if (wdt <= 700) {
       update_bpoint(1); // portable mode
     } else if (wdt <= 900) {
       update_bpoint(2); // desktop mode
