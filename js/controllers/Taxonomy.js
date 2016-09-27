@@ -1,3 +1,50 @@
+// ---
+function node_index(name) {
+  return function (element, index, array) {
+    if (element.name == name) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+function node_new(type_1, name, type_2, values) {
+  n = {
+    'type': type_1,
+    'name': name,
+  };
+  ts = tax_other_types(type_1);
+  ix_ts = ts.indexOf(type_2);
+  for (i in tax_other_types(type_1)) {
+    if (i == ix_ts) {
+      n[type_2] = values;
+    } else {
+      n[ts[i]] = [];
+    }
+  }
+
+  return n;
+}
+
+// ---
+function optional(data, default_value) {
+  if (data == undefined) {
+    return default_value;
+  }
+  return data;
+}
+
+
+function tax_other_types(type) {
+  if (type == "town") {remains = ["category", "tag"]};
+  if (type == "category") {remains = ["town", "tag"]};
+  if (type == "tag") {remains = ["town","category"]};
+  return remains;
+}
+
+
+
 app.controller('taxonomy', function($scope){
   // The selection of taxonomy items
   $scope.taxSelect = {
@@ -14,41 +61,62 @@ app.controller('taxonomy', function($scope){
   };
 
   $scope.taxInit = function (tax) {
-    function register_tax (town, category, tag) {
-      function add_if_needed(name, target, section, value) {
-        if ( $scope.taxonomy[name][target] === undefined) {
-          $scope.taxonomy[name][target] = {};
-        } if ( $scope.taxonomy[name][target][section] === undefined ){
-          $scope.taxonomy[name][target][section] = [value];
-        } else if ( !($scope.taxonomy[name][target][section].indexOf(value) >= 0) ){
-          $scope.taxonomy[name][target][section].push(value);
-          $scope.taxonomy[name][target][section].sort(); // TODO: faster insert, basing on splice
+    function add_if_needed(type_1, values_1, type_2, values_2) {
+      for (i in values_1) {
+        ix = $scope.taxonomy[type_1].findIndex(node_index(values_1[i]));
+        if ( ix >= 0) {
+          if ( $scope.taxonomy[type_1][ix][type_2] != undefined ){
+            $scope.taxonomy[type_1][ix][type_2]= $scope.taxonomy[type_1][ix][type_2].concat(
+              values_2.filter( function (x) {
+                  return $scope.taxonomy[type_1][ix][type_2].indexOf(x) < 0;
+                })
+              );
+          } else {
+            $scope.taxonomy[type_1][ix][type_2] = values_2;
+          }
+        } else {
+          $scope.taxonomy[type_1].push(node_new(type_1, values_1[i], type_2, values_2));
         }
-      };
-      add_if_needed("town", town, "category", category);
-      add_if_needed("town", town, "tag", tag);
-      add_if_needed("category", category, "town", town);
-      add_if_needed("category", category, "tag", tag);
-      add_if_needed("tag", tag, "town", town);
-      add_if_needed("tag", tag, "category", category);
+      }
     };
 
-    tax.town.forEach(function(town) {
-      tax.category.forEach(function(category) {
-        tax.tag.forEach(function(tag) {
-          register_tax(town, category, tag);
+    function process_tstack(tstack) {
+      tstack.forEach(function(t1) {
+        tstack.forEach(function(t2) {
+          if (t1 != t2) {
+            if(t1.data.length > 0) {
+              add_if_needed(t1.type, t1.data, t2.type, t2.data);
+            }
+          }
         })
       })
-    });
+    }
+
+    function process_tax() {
+      var tstack = [];
+
+      tstack.push({'type': 'town', 'data': optional(tax.town, [])});
+      tstack.push({'type': 'category', 'data': optional(tax.category, [])});
+      tstack.push({'type': 'tag', 'data': optional(tax.tag, [])});
+
+      // ---
+      process_tstack(tstack);
+    };
+    process_tax();
   };
 
 
   // ---
   function tax_match ( tax, name, def ) {
     function tax_match_selection (tax, name) {
-      for (var i =0; i< tax[name].length; ++i) {
-        if($scope.taxSelect[name].indexOf(tax[name][i])>= 0) {
-          return true;
+      if (tax[name] == undefined) {
+        return false;
+      }
+      else {
+        for (var i =0; i< tax[name].length; ++i) {
+          if($scope.taxSelect[name].indexOf(tax[name][i])>= 0) {
+            return true;
+          }
         }
       }
       return false;
@@ -74,27 +142,21 @@ app.controller('taxonomy', function($scope){
 
 
   // ---
-  function hide_switch (name, value) {
-    var to_hide = undefined;
-    if (name == "town") {to_hide = ["category", "tag"]};
-    if (name == "category") {to_hide = ["town", "tag"]};
-    if (name == "tag") {to_hide = ["town","category"]};
+  function hide_switch (type, value) {
+    var to_hide = tax_other_types(type);
 
     for (x = 0; x<to_hide.length; ++x) {
-      var target = to_hide[x];
-      if ($scope.taxSelect[target].length > 0) {
-        for ( i in $scope.taxSelect[target]) {
-          if($scope.taxonomy[name][value][target] == undefined)
-          {
-            console.log(name, target, $scope.taxonomy[name][value])
-          };
-          if ($scope.taxonomy[name][value][target].indexOf($scope.taxSelect[target][i]) >= 0) {
-            return false;
+      var need_hide = to_hide[x];
+      if ($scope.taxSelect[need_hide].length > 0) {
+        for ( i in $scope.taxSelect[need_hide]) {
+          ix = $scope.taxonomy[type].findIndex(node_index(value));
+          node = $scope.taxonomy[type][ix];
+          if (node[need_hide].indexOf($scope.taxSelect[need_hide][i]) >= 0) {
+            return true;
           }
         };
-        return true;
       }
-    }
+    };
     return false;
   };
 
