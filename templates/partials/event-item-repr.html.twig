@@ -1,13 +1,16 @@
-<div class="Event">
-  <tr>
-    <td class="EventDate"> {{ page.header.date | date ("d. m. Y") }} </td>
-    <td class="EventTitle">
-      <a href="{{ page.url }}" tabindex="0">
-        {{ page.title }}
-      </a>
-      <span class="EventTown">
-        {{ page.taxonomy.town[0] }}
-      </span>
-    </td>
-  </tr>
-</div>
+{% set tax = page.taxonomy | json_encode() %}
+<tr
+class="EventItem"
+ng-class='{Hide:taxHideBlogItem({{tax}})}'
+ng-init='taxInit({{tax}})'
+>
+  <td class="EventDate"> {{ page.header.date | date ("d. m. Y") }} </td>
+  <td class="EventTitle">
+    <a href="{{ page.url }}" tabindex="0">
+      {{ page.title }}
+    </a>
+    <span class="EventTown">
+      {{ page.taxonomy.town[0] }}
+    </span>
+  </td>
+</tr>

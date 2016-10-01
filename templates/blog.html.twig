@@ -9,7 +9,7 @@
 
 
 {% block sidebarCustom %}
-{% if header.blog.filt.town or header.blog.filt.category or header.blog.filt.tag %}
+{% if header.taxfilter.town or header.taxfilter.category or header.taxfilter.tag %}
 <nav class = "RequireJS SideNav" require-js>
   {% include "filter/taxonomy_switches.html.twig" %}
 </nav>

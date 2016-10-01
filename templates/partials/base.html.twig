@@ -58,7 +58,7 @@
           >
           {% if header.sidebar.enabled and not page.home() %}
           <aside id="sideNavigation" ng-controller="sidebarCtrl">
-            {% if header.sidenav.enabled or (page.template in ['default','timetable'] )%}
+            {% if header.sidenav.enabled or (page.template in ['default'] )%}
             {% block sidenav %}
               <h2>{{ page.parent.title() }}</h2>
               {% include 'partials/navigation/side_nav.html.twig' %}

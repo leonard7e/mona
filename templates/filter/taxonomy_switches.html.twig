@@ -22,13 +22,13 @@
 {% endfor %}
 
 <div class="Taxonomy Switches" >
-{% if header.blog.filt.town %}
+{% if header.taxfilter.town %}
   {{ utils.tax_switches ("town", 0, "Stadt wählen", towns)}}
 {% endif %}
-{% if header.blog.filt.category %}
+{% if header.taxfilter.category %}
   {{ utils.tax_switches ('category', 1, 'Kategorien', categories)}}
 {% endif %}
-{% if header.blog.filt.tag %}
+{% if header.taxfilter.tag %}
   {{ utils.tax_switches ("tag", 2, "Schlagworte", tags)}}
 {% endif %}
 {#
