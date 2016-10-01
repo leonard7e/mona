@@ -3,14 +3,21 @@
 {% block content %}
 <div id="TableOfContents">
   {% for section in pages.children.visible %}
+  {% if not (section.template in ['tableofcontents']) %}
   <div class="tocEntry">
+    {% if section.routable() %}
+    <h3 class="tocSection"> <a class="navItem" href="{{p.url}}" tabindex="0">
+    {{section.title}} </a> </h3>
+    {% else %}
     <h3 class="tocSection"> {{section.title}} </h3>
     <ul>
       {% for p in section.children.visible %}
       <li> <a class="navItem" href="{{p.url}}" tabindex="0">{{p.title}}</a></li>
       {% endfor %}
     </ul>
+    {% endif %}
   </div>
+  {% endif %}
   {% endfor %}
 </div>
 {% endblock %}
