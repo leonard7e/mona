@@ -1,9 +1,12 @@
+{% set footernav = page.evaluate([{'@page.children':'/footer','order': {'by':'default'}}]) %}
 <footer id="mainFooter">
   <nav>
     <ul>
+      {% for item in footernav %}
       <li>
-        <a href="{{ base_url }}/impressum" tabindex="0">Impressum</a></li>
+        <a href="{{ item.url }}" tabindex="0">{{item.menu}}</a></li>
       </li>
+      {% endfor %}
     </ul>
   </nav>
 </footer>
