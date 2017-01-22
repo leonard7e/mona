@@ -1,0 +1,30 @@
+{
+  "name": "mona",
+  "version": "0.9.5",
+  "description": "This theme is used for \"Selbsthilfenetzwerk für seelische Gesundheit\"",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-aria": "^1.6.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-google-fonts": "^0.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonard7e/mona.git"
+  },
+  "author": "Leonard Siebeneicher",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/leonard7e/mona/issues"
+  },
+  "homepage": "https://github.com/leonard7e/mona#readme"
+}

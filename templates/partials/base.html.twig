@@ -18,8 +18,8 @@
       {% do assets.addInlineCss(css_inline) %}
     {% endblock %}
     {% block javascript %}
-    {% do assets.addJs('theme://bower_components/angular/angular.min.js') %}
-    {% do assets.addJs('theme://bower_components/angular-aria/angular-aria.js') %}
+    {% do assets.addJs('theme://node_modules/angular/angular.min.js') %}
+    {% do assets.addJs('theme://node_modules/angular-aria/angular-aria.js') %}
     {% do assets.addJs('theme://js/mona.js') %}
     {% do assets.addJs('theme://js/controllers/Banner.js', {'group':'MonaAngular'}) %}
     {% do assets.addJs('theme://js/controllers/DropdownNav.js', {'group':'MonaAngular'}) %}
