@@ -21,16 +21,6 @@ form:
               title: Blog
               underline: true
               fields:
-                header.sidenav.enabled:
-                  type: toggle
-                  label: Enable Side Navigation
-                  options:
-                    1: PLUGIN_ADMIN.ENABLED
-                    0: PLUGIN_ADMIN.DISABLED
-                  highlight: 1
-                  default: 1
-                  validate:
-                    type: bool
                 header.taxfilter.town:
                   type: toggle
                   label: Enable town filtering
