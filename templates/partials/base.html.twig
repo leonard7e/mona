@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 {% import 'macros/utils.html.twig' as utils %}
 {% import 'macros/css_tools.html.twig' as css %}
-{% set lang = grav.language.getActive ?: theme_config.default_lang %}
 <html
-  lang="{{ lang }}"
+  lang="{{ grav.language.getLanguage ?: 'en' }}"
   ng-app="Mona">
   <head>
     {% block stylesheets %}
