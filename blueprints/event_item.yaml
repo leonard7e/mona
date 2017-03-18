@@ -22,9 +22,6 @@ form:
                 header.date:
                   type: datetime
                   label: Set date of event
-                header.town:
-                  type: text
-                  label: Town
                 header.adress:
                   type: markdown
                   label: Adress
