@@ -5,11 +5,15 @@ Mona is a theme, usable in Grav.
 ##### Installation
 
 On Ubuntu, do
-> apt-get install nodejs npm
+> apt-get install nodejs nodejs-legacy npm
 
 This will give you npm package manager.
 You will need grunt-cli. You can install it via npm.
 > npm install -g grunt-cli
+
+Now you need to install Sass
+> apt-get install ruby
+> gem install sass
 
 After, you can do first step installing Mona.  
 
