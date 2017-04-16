@@ -14,13 +14,14 @@ function node_new(type_1, name, type_2, values) {
     'type': type_1,
     'name': name,
   };
-  ts = tax_other_types(type_1);
-  ix_ts = ts.indexOf(type_2);
-  for (i in tax_other_types(type_1)) {
-    if (i == ix_ts) {
+
+  ts =  ["town","category","tag"];
+  for (i in ts) {
+    u = ts[i];
+    if (u == type_2) {
       n[type_2] = values;
     } else {
-      n[ts[i]] = [];
+      n[u] = [];
     }
   }
 
@@ -34,15 +35,6 @@ function optional(data, default_value) {
   }
   return data;
 }
-
-
-function tax_other_types(type) {
-  if (type == "town") {remains = ["category", "tag"]};
-  if (type == "category") {remains = ["town", "tag"]};
-  if (type == "tag") {remains = ["town","category"]};
-  return remains;
-}
-
 
 
 app.controller('taxonomy', function($scope){
@@ -83,10 +75,8 @@ app.controller('taxonomy', function($scope){
     function process_tstack(tstack) {
       tstack.forEach(function(t1) {
         tstack.forEach(function(t2) {
-          if (t1 != t2) {
-            if(t1.data.length > 0) {
-              add_if_needed(t1.type, t1.data, t2.type, t2.data);
-            }
+          if(t1.data.length > 0) {
+            add_if_needed(t1.type, t1.data, t2.type, t2.data);
           }
         })
       })
@@ -114,7 +104,7 @@ app.controller('taxonomy', function($scope){
       }
       else {
         for (var i =0; i< tax[name].length; ++i) {
-          if($scope.taxSelect[name].indexOf(tax[name][i])>= 0) {
+          if($scope.taxSelect[name].indexOf(tax[name][i]) >= 0) {
             return true;
           }
         }
@@ -143,16 +133,19 @@ app.controller('taxonomy', function($scope){
 
   // ---
   function hide_switch (type, value) {
-    var to_hide = tax_other_types(type);
+
+    var to_hide = ['town','category','tag'];
 
     for (x = 0; x<to_hide.length; ++x) {
       var need_hide = to_hide[x];
       if ($scope.taxSelect[need_hide].length > 0) {
         for ( i in $scope.taxSelect[need_hide]) {
           ix = $scope.taxonomy[type].findIndex(node_index(value));
-          node = $scope.taxonomy[type][ix];
-          if (node[need_hide].indexOf($scope.taxSelect[need_hide][i]) >= 0) {
-            return true;
+          if (ix >= 0){
+            node = $scope.taxonomy[type][ix];
+            if (node[need_hide].indexOf($scope.taxSelect[need_hide][i]) < 0) {
+              return true;
+            }
           }
         };
       }
